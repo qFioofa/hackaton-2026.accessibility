@@ -1,0 +1,171 @@
+/* ===== БАЗА ===== */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --primary: #005fcc;
+  --primary-hover: #004a99;
+  --border: #cccccc;
+  --focus: #003399;
+  --font-base: 16px;
+  --line: 1.5;
+  --space: 16px;
+  --radius: 6px;
+}
+
+/* Темы */
+body[data-a11y-theme="high-contrast"] {
+  --bg: #000000; --text: #ffffff; --primary: #ffff00; --primary-hover: #ffff66;
+  --border: #ffffff; --focus: #00ffff;
+}
+body[data-a11y-theme="blue"] {
+  --bg: #ffffff; --text: #000080; --primary: #000080; --primary-hover: #00004d;
+  --border: #000080; --focus: #000033;
+}
+body[data-a11y-font="large"] { --font-base: 20px; }
+body[data-a11y-font="xlarge"] { --font-base: 24px; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--font-base); }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: var(--line); transition: background 0.2s, color 0.2s;
+}
+
+/* Доступность */
+.skip-link {
+  position: absolute; top: -40px; left: 0;
+  background: var(--primary); color: #fff; padding: 8px 16px;
+  z-index: 1000; transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; border: 0;
+  padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+a, button, input, select, textarea { color: inherit; }
+a { text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+
+/* Контейнер */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space); }
+
+/* Шапка */
+.header { border-bottom: 2px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+.header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+.header__logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+.nav-list { display: flex; gap: var(--space); list-style: none; }
+.nav-toggle, .nav-link {
+  background: none; border: none; font-size: 1rem; padding: 8px 0;
+  cursor: pointer; position: relative;
+}
+.nav-toggle[aria-expanded="true"]::after { content: " ▲"; }
+.nav-toggle::after { content: " ▼"; font-size: 0.8em; }
+.nav-dropdown {
+  position: absolute; top: 100%; left: 0; background: var(--bg);
+  border: 2px solid var(--border); border-radius: var(--radius);
+  padding: var(--space); list-style: none; min-width: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.nav-dropdown li { margin: 8px 0; }
+.nav-dropdown a { display: block; padding: 4px 0; }
+
+/* Герой */
+.hero { text-align: center; padding: 40px 0; }
+.hero h1 { font-size: 2rem; margin-bottom: 16px; }
+.hero__desc { max-width: 800px; margin: 0 auto 24px; }
+.hero__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 10px 20px; border-radius: var(--radius);
+  font-weight: 600; cursor: pointer; border: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn--primary { background: var(--primary); color: #fff; }
+.btn--primary:hover, .btn--primary:focus { background: var(--primary-hover); }
+.btn--outline { background: transparent; border-color: var(--primary); color: var(--primary); }
+.btn--outline:hover, .btn--outline:focus { background: var(--primary); color: #fff; }
+.btn--small { padding: 6px 12px; font-size: 0.9rem; }
+
+/* Секции */
+section { padding: 32px 0; border-top: 1px solid var(--border); }
+h2 { font-size: 1.75rem; margin-bottom: 20px; }
+.link-arrow { display: inline-block; margin-top: 16px; color: var(--primary); font-weight: 600; }
+.link-arrow:hover, .link-arrow:focus { text-decoration: underline; }
+
+/* Календарь */
+.calendar-tabs { display: flex; gap: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
+.tab-btn {
+  background: none; border: none; padding: 10px 16px; font-size: 1rem;
+  cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.tab-btn[aria-selected="true"] { border-color: var(--primary); color: var(--primary); font-weight: 700; }
+.event-list { list-style: none; }
+.event-card {
+  display: flex; gap: 16px; padding: 16px; border: 1px solid var(--border);
+  border-radius: var(--radius); margin-bottom: 12px; align-items: center; flex-wrap: wrap;
+}
+.event-date { font-weight: 700; min-width: 180px; }
+.event-info { flex: 1; }
+.event-title { font-size: 1.1rem; margin: 4px 0; }
+.event-meta { color: #666; }
+
+/* Статистика */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.stat-card { padding: 20px; border: 1px solid var(--border); border-radius: var(--radius); }
+.stat-card h3 { margin-bottom: 16px; font-size: 1.2rem; }
+.progress-item { margin-bottom: 12px; }
+.progress-label { display: block; margin-bottom: 4px; }
+.progress-bar {
+  height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;
+}
+.progress-fill { height: 100%; background: var(--primary); }
+.progress-value { font-weight: 700; margin-left: 8px; }
+.stat-list { list-style: disc; padding-left: 20px; }
+.stat-list li { margin-bottom: 6px; }
+
+/* Спорт */
+.sports-list { list-style: none; }
+.sport-item {
+  display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.sport-rank { font-size: 1.5rem; font-weight: 700; color: var(--primary); min-width: 32px; }
+.sport-name { margin-bottom: 8px; }
+.sport-stats { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.sport-stats dt { font-weight: 600; }
+
+/* Подвал */
+.footer { padding: 32px 0; background: var(--bg); border-top: 2px solid var(--border); }
+.footer__nav { margin-bottom: 24px; }
+.footer__title { font-size: 1.25rem; margin-bottom: 12px; }
+.footer__list { list-style: none; }
+.footer__list li { margin-bottom: 8px; }
+.footer__copy { font-size: 0.9rem; color: #666; }
+
+/* Панель доступности */
+.a11y-panel {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999;
+  background: var(--bg); border: 2px solid var(--text); padding: 12px;
+  border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.a11y-toggle { background: var(--primary); color: #fff; border: none; padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-weight: 600; }
+.a11y-menu { margin-top: 12px; min-width: 180px; }
+.a11y-group { border: 1px solid var(--border); padding: 8px; margin-bottom: 8px; border-radius: var(--radius); }
+.a11y-group legend { font-weight: 600; margin-bottom: 4px; }
+.a11y-group button {
+  margin: 4px; padding: 6px 10px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); cursor: pointer; border-radius: 4px;
+}
+.a11y-group button[aria-pressed="true"] { background: var(--text); color: var(--bg); font-weight: 700; }
+#a11y-images-btn { width: 100%; padding: 8px; margin-top: 8px; cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--text); border-radius: 4px; }
+body[data-a11y-images="off"] img, body[data-a11y-images="off"] svg { display: none !important; }
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .header__inner { flex-direction: column; gap: 12px; }
+  .nav-list { flex-wrap: wrap; justify-content: center; }
+  .event-card { flex-direction: column; align-items: flex-start; }
+  .sport-item { flex-direction: column; }
+}

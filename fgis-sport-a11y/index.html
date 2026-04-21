@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ФГИС «Спорт» — Доступная версия</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-a11y-theme="default" data-a11y-font="normal" data-a11y-images="on">
+
+  <!-- Skip-link: перепрыгивает навигацию -->
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Шапка -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="ФГИС Спорт, главная страница">
+        ФГИС «Спорт»
+      </a>
+
+      <!-- Основная навигация -->
+      <nav class="header__nav" role="navigation" aria-label="Основная навигация">
+        <ul class="nav-list" role="menubar">
+          
+          <!-- Гражданам -->
+          <li class="nav-item" role="none">
+            <button class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="menu-citizens">
+              Гражданам
+            </button>
+            <ul id="menu-citizens" class="nav-dropdown" role="menu" hidden>
+              <li role="none"><a role="menuitem" href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer">Запись в спортивную школу <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+              <li role="none"><a role="menuitem" href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer">Запись на массовые мероприятия <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+              <li role="none"><a role="menuitem" href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer">Запись на нормативы ГТО <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+              <li role="none"><a role="menuitem" href="/gto/uin">Проверка УИН ВФСК «ГТО»</a></li>
+              <li role="none"><a role="menuitem" href="/sport-selector">Выбор спорта для ребёнка</a></li>
+            </ul>
+          </li>
+
+          <!-- Организациям -->
+          <li class="nav-item" role="none">
+            <button class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="menu-orgs">
+              Организациям
+            </button>
+            <ul id="menu-orgs" class="nav-dropdown" role="menu" hidden>
+              <li role="none"><a role="menuitem" href="/facilities">Объекты спорта</a></li>
+              <li role="none"><a role="menuitem" href="/calendar">Единый календарный план</a></li>
+              <li role="none"><a role="menuitem" href="/reference">Справочники и классификаторы</a></li>
+              <li role="none"><a role="menuitem" href="/tax-deduction">Налоговый вычет за занятия спортом</a></li>
+            </ul>
+          </li>
+
+          <!-- Статистика -->
+          <li class="nav-item" role="none">
+            <a href="/statistics" role="menuitem" class="nav-link">Статистика</a>
+          </li>
+
+          <!-- Ресурсы -->
+          <li class="nav-item" role="none">
+            <button class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="menu-resources">
+              Ресурсы
+            </button>
+            <ul id="menu-resources" class="nav-dropdown" role="menu" hidden>
+              <li role="none"><a role="menuitem" href="https://minsport.gov.ru" target="_blank" rel="noopener noreferrer">Минспорт России <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+              <li role="none"><a role="menuitem" href="https://xn--b1ajcrh.xn--p1ai/" target="_blank" rel="noopener noreferrer">ВФСК ГТО <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+              <li role="none"><a role="menuitem" href="https://sportnorma.gov.ru" target="_blank" rel="noopener noreferrer">Спорт – норма жизни <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+              <li role="none"><a role="menuitem" href="https://gamesoffuture.ru" target="_blank" rel="noopener noreferrer">Игры будущего <span aria-hidden="true">↗</span><span class="sr-only">(откроется в новой вкладке)</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main id="main-content" role="main">
+    <div class="container">
+
+      <!-- Герой -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Цифровые сервисы в сфере физической культуры и спорта</h1>
+        <p class="hero__desc">Информационная платформа позволяет собирать и агрегировать данные сферы ФКиС для обеспечения прозрачности процессов.</p>
+        <div class="hero__actions">
+          <a href="/statistics" class="btn btn--primary">Перейти к статистике</a>
+          <a href="/about" class="btn btn--outline">Как это работает</a>
+        </div>
+      </section>
+
+      <!-- Календарь -->
+      <section class="calendar-section" aria-labelledby="calendar-heading">
+        <h2 id="calendar-heading">Единый календарный план</h2>
+        <div class="calendar-tabs" role="tablist" aria-label="Тип мероприятий">
+          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-sport" id="tab-sport-btn">Спортивные</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-mass" id="tab-mass-btn">Физкультурные</button>
+        </div>
+
+        <div id="tab-sport" class="tab-panel" role="tabpanel" aria-labelledby="tab-sport-btn">
+          <ul class="event-list" aria-label="Список спортивных мероприятий">
+            <li class="event-card">
+              <time class="event-date" datetime="2026-04-19">19.04.2026 – 25.04.2026</time>
+              <div class="event-info">
+                <h3 class="event-title">ПЕРВЕНСТВО ЕВРОПЫ</h3>
+                <p class="event-meta">ТХЭКВОНДО ИТФ • ГРЕЦИЯ</p>
+              </div>
+              <a href="/events/euro-tkd" class="btn btn--small">Подробнее</a>
+            </li>
+            <li class="event-card">
+              <time class="event-date" datetime="2026-04-20">20.04.2026 – 22.04.2026</time>
+              <div class="event-info">
+                <h3 class="event-title">ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
+                <p class="event-meta">ВЕЛОСИПЕДНЫЙ СПОРТ • Краснодарский край</p>
+              </div>
+              <a href="/events/cycling-krd" class="btn btn--small">Подробнее</a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="tab-mass" class="tab-panel" role="tabpanel" aria-labelledby="tab-mass-btn" hidden>
+          <ul class="event-list" aria-label="Список физкультурных мероприятий">
+            <li class="event-card">
+              <time class="event-date" datetime="2026-01-03">03.01.2026 – 30.04.2026</time>
+              <div class="event-info">
+                <h3 class="event-title">Первенство ПФО среди юношей до 16 лет</h3>
+                <p class="event-meta">ХОККЕЙ ПО НАЗНАЧЕНИЮ • окончание сезона 2025-2026</p>
+              </div>
+              <a href="/events/hockey-pfo" class="btn btn--small">Подробнее</a>
+            </li>
+          </ul>
+        </div>
+
+        <a href="/calendar" class="link-arrow">Все мероприятия →</a>
+      </section>
+
+      <!-- Статистика -->
+      <section class="stats-section" aria-labelledby="stats-heading">
+        <h2 id="stats-heading">Статистика физкультуры и спорта в РФ</h2>
+        
+        <div class="stats-grid">
+          <article class="stat-card">
+            <h3>Доля граждан, занимающихся спортом (2024)</h3>
+            <div class="progress-group">
+              <div class="progress-item">
+                <span class="progress-label">В организованных формах</span>
+                <div class="progress-bar" role="progressbar" aria-valuenow="60.3" aria-valuemin="0" aria-valuemax="100" aria-label="60,3 процента">
+                  <div class="progress-fill" style="width: 60.3%"></div>
+                </div>
+                <span class="progress-value">60,3%</span>
+              </div>
+              <div class="progress-item">
+                <span class="progress-label">С учётом самостоятельно занимающихся</span>
+                <div class="progress-bar" role="progressbar" aria-valuenow="69.3" aria-valuemin="0" aria-valuemax="100" aria-label="69,3 процента">
+                  <div class="progress-fill" style="width: 69.3%"></div>
+                </div>
+                <span class="progress-value">69,3%</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <h3>Люди в реестре</h3>
+            <ul class="stat-list" aria-label="Статистика по категориям">
+              <li><strong>Спортсмены:</strong> 2 201 534 всего / 1 541 488 в регистре</li>
+              <li><strong>Тренеры:</strong> 139 129 всего / 58 614 в регистре</li>
+              <li><strong>Судьи:</strong> 104 273 всего / 214 в регистре</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Популярные виды спорта -->
+      <section class="sports-section" aria-labelledby="sports-heading">
+        <h2 id="sports-heading">Популярные виды спорта в России</h2>
+        <p class="section-subtitle">по числу спортсменов по итогам 2024 года</p>
+        
+        <ol class="sports-list" aria-label="Рейтинг видов спорта">
+          <li class="sport-item">
+            <span class="sport-rank">1.</span>
+            <div class="sport-info">
+              <h3 class="sport-name">Футбол</h3>
+              <dl class="sport-stats">
+                <dt>Спортсменов</dt><dd>280 985</dd>
+                <dt>Тренеров</dt><dd>10 795</dd>
+                <dt>Судей</dt><dd>5 158</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="sport-item">
+            <span class="sport-rank">2.</span>
+            <div class="sport-info">
+              <h3 class="sport-name">Спортивная борьба</h3>
+              <dl class="sport-stats">
+                <dt>Спортсменов</dt><dd>178 731</dd>
+                <dt>Тренеров</dt><dd>6 208</dd>
+                <dt>Судей</dt><dd>2 177</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="sport-item">
+            <span class="sport-rank">3.</span>
+            <div class="sport-info">
+              <h3 class="sport-name">Плавание</h3>
+              <dl class="sport-stats">
+                <dt>Спортсменов</dt><dd>140 530</dd>
+                <dt>Тренеров</dt><dd>6 129</dd>
+                <dt>Судей</dt><dd>5 314</dd>
+              </dl>
+            </div>
+          </li>
+        </ol>
+        <a href="/sports" class="link-arrow">Посмотреть все виды →</a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <nav class="footer__nav" aria-label="Полезные ресурсы">
+        <h2 class="footer__title">Полезные ресурсы</h2>
+        <ul class="footer__list">
+          <li><a href="https://minsport.gov.ru" target="_blank" rel="noopener noreferrer">Министерство спорта России</a></li>
+          <li><a href="https://xn--b1ajcrh.xn--p1ai/" target="_blank" rel="noopener noreferrer">ВФСК ГТО</a></li>
+          <li><a href="https://sportnorma.gov.ru" target="_blank" rel="noopener noreferrer">Проект «Спорт – норма жизни»</a></li>
+          <li><a href="https://gosuslugi.ru" target="_blank" rel="noopener noreferrer">Госуслуги</a></li>
+        </ul>
+      </nav>
+      <p class="footer__copy">© 2026 ФГИС «Спорт». Динамика развития спорта в РФ</p>
+    </div>
+  </footer>
+
+  <!-- Панель доступности -->
+  <aside class="a11y-panel" role="region" aria-label="Настройки доступности">
+    <button class="a11y-toggle" aria-expanded="false" aria-controls="a11y-menu">♿ Версия для слабовидящих</button>
+    <div id="a11y-menu" class="a11y-menu" hidden>
+      <fieldset class="a11y-group">
+        <legend>Размер шрифта</legend>
+        <button data-action="font" data-value="normal" aria-pressed="true">A</button>
+        <button data-action="font" data-value="large" aria-pressed="false">A+</button>
+        <button data-action="font" data-value="xlarge" aria-pressed="false">A++</button>
+      </fieldset>
+      <fieldset class="a11y-group">
+        <legend>Цветовая схема</legend>
+        <button data-action="theme" data-value="default" aria-pressed="true">Стандарт</button>
+        <button data-action="theme" data-value="high-contrast" aria-pressed="false">Ч/Б</button>
+        <button data-action="theme" data-value="blue" aria-pressed="false">Синяя</button>
+      </fieldset>
+      <button id="a11y-images-btn" aria-pressed="false">🖼 Изображения: Вкл</button>
+    </div>
+  </aside>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
