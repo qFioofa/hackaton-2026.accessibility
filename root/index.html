@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<a href="#main" class="skip-link">Перейти к основному содержимому</a>
-
 <header role="banner">
   <div class="container">
     <h1>ФГИС «Спорт»</h1>
@@ -27,9 +25,8 @@
 <main id="main" role="main">
   <div class="container">
 
-    <!-- ГЕРОЙ -->
-    <section id="hero" aria-labelledby="hero-title">
-      <h2 id="hero-title">Цифровые сервисы в сфере физической культуры и спорта</h2>
+    <section id="hero">
+      <h2>Цифровые сервисы в сфере физической культуры и спорта</h2>
       <p>Информационная платформа позволяет собирать и агрегировать данные сферы ФКиС для обеспечения прозрачности процессов.</p>
       <div class="buttons">
         <a href="#stats" class="btn btn-primary">Перейти к статистике</a>
@@ -37,112 +34,141 @@
       </div>
     </section>
 
-    <!-- СЕРВИСЫ -->
-    <section id="services" aria-labelledby="services-title">
-      <h2 id="services-title">Сервисы</h2>
+    <section id="services">
+      <h2>Сервисы</h2>
 
-      <div role="region" aria-labelledby="citizens-title">
-        <h3 id="citizens-title">Для граждан</h3>
-        
-        <ul role="list" aria-label="Сервисы для граждан">
-          <li role="listitem" aria-labelledby="service1-title">
-            <article class="card">
-              <h4 id="service1-title">Проверка УИН ВФСК «ГТО»</h4>
-              <p>Проверьте УИН участника перед выполнением испытаний ВФСК «ГТО»</p>
-              <a href="/gto/uin" class="btn btn-primary">Проверить УИН</a>
-            </article>
-          </li>
+      <div class="service-block">
+        <h3>Для граждан</h3>
+        <div class="cards">
+          <div class="card">
+            <h4>Проверка УИН ВФСК «ГТО»</h4>
+            <p>Проверьте УИН участника перед выполнением испытаний ВФСК «ГТО»</p>
+            <a href="/gto/uin" class="btn btn-primary">Проверить УИН</a>
+          </div>
           
-          <li role="listitem" aria-labelledby="service2-title">
-            <article class="card">
-              <h4 id="service2-title">Запись детей в спортивную школу</h4>
-              <p>Подать электронное заявление через портал Госуслуг</p>
-              <a href="https://www.gosuslugi.ru" class="btn btn-outline" target="_blank" rel="noopener">Перейти</a>
-            </article>
-          </li>
+          <div class="card">
+            <h4>Запись детей в спортивную школу</h4>
+            <p>Подать электронное заявление через портал Госуслуг</p>
+            <a href="https://www.gosuslugi.ru" class="btn btn-outline" target="_blank" rel="noopener">Перейти</a>
+          </div>
           
-          <li role="listitem" aria-labelledby="service3-title">
-            <article class="card">
-              <h4 id="service3-title">Запись на участие в массовых физкультурных мероприятиях</h4>
-              <p>Подать электронное заявление через портал Госуслуг</p>
-              <a href="https://www.gosuslugi.ru" class="btn btn-outline" target="_blank" rel="noopener">Перейти</a>
-            </article>
-          </li>
+          <div class="card">
+            <h4>Запись на участие в массовых физкультурных мероприятиях</h4>
+            <p>Подать электронное заявление через портал Госуслуг</p>
+            <a href="https://www.gosuslugi.ru" class="btn btn-outline" target="_blank" rel="noopener">Перейти</a>
+          </div>
           
-          <li role="listitem" aria-labelledby="service4-title">
-            <article class="card">
-              <h4 id="service4-title">Запись на сдачу нормативов ГТО</h4>
-              <p>Подать электронное заявление через портал Госуслуг</p>
-              <a href="https://www.gosuslugi.ru" class="btn btn-outline" target="_blank" rel="noopener">Перейти</a>
-            </article>
-          </li>
+          <div class="card">
+            <h4>Запись на сдачу нормативов ГТО</h4>
+            <p>Подать электронное заявление через портал Госуслуг</p>
+            <a href="https://www.gosuslugi.ru" class="btn btn-outline" target="_blank" rel="noopener">Перейти</a>
+          </div>
           
-          <li role="listitem" aria-labelledby="service5-title">
-            <article class="card">
-              <h4 id="service5-title">Выбор спорта для ребёнка</h4>
-              <p>В настоящий момент проходит тестирование обновленной модели расчета показателей</p>
-              <a href="/selector" class="btn btn-outline">Перейти</a>
-            </article>
-          </li>
-        </ul>
+          <div class="card">
+            <h4>Выбор спорта для ребёнка</h4>
+            <p>В настоящий момент проходит тестирование обновленной модели расчета показателей</p>
+            <a href="/selector" class="btn btn-outline">Перейти</a>
+          </div>
+        </div>
       </div>
 
-      <div role="region" aria-labelledby="orgs-title" style="margin-top: 3rem;">
-        <h3 id="orgs-title">Для организаций</h3>
-        
-        <ul role="list" aria-label="Сервисы для организаций">
-          <li role="listitem" aria-labelledby="org1-title">
-            <article class="card">
-              <h4 id="org1-title">Объекты спорта</h4>
-              <p>Найти объект спорта в своем регионе</p>
-              <a href="/facilities" class="btn btn-primary">Перейти</a>
-            </article>
-          </li>
+      <div class="service-block">
+        <h3>Для организаций</h3>
+        <div class="cards">
+          <div class="card">
+            <h4>Объекты спорта</h4>
+            <p>Найти объект спорта в своем регионе</p>
+            <a href="/facilities" class="btn btn-primary">Перейти</a>
+          </div>
           
-          <li role="listitem" aria-labelledby="org2-title">
-            <article class="card">
-              <h4 id="org2-title">Единый календарный план</h4>
-              <p>Единый календарный план физкультурных и спортивных мероприятий</p>
-              <a href="ekp/index.html" class="btn btn-outline">Посмотреть ЕКП</a>
-            </article>
-          </li>
-        </ul>
+          <div class="card">
+            <h4>Единый календарный план</h4>
+            <p>Единый календарный план физкультурных и спортивных мероприятий</p>
+            <a href="ekp/index.html" class="btn btn-outline">Посмотреть ЕКП</a>
+          </div>
+          
+          <div class="card">
+            <h4>Справочники и классификаторы</h4>
+            <p>Нормативно-справочная информация сферы ФКиС</p>
+            <a href="/reference" class="btn btn-outline">Перейти</a>
+          </div>
+          
+          <div class="card">
+            <h4>Налоговый вычет за занятия спортом</h4>
+            <p>Перечень организаций, осуществляющих деятельность в сфере ФКиС</p>
+            <a href="/tax" class="btn btn-outline">Ознакомиться</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- КАЛЕНДАРЬ -->
-    <section id="calendar" aria-labelledby="calendar-title">
-      <h2 id="calendar-title">Единый календарный план</h2>
+    <section id="calendar">
+      <h2>Единый календарный план</h2>
       
-      <ul role="list" aria-label="Ближайшие мероприятия">
-        <li role="listitem">
-          <article class="event">
-            <time datetime="2026-04-19">19.04.2026 – 25.04.2026</time>
-            <h3>ПЕРВЕНСТВО ЕВРОПЫ</h3>
-            <p>ТХЭКВОНДО ИТФ • ГРЕЦИЯ</p>
-          </article>
-        </li>
-        <li role="listitem">
-          <article class="event">
-            <time datetime="2026-04-20">20.04.2026 – 22.04.2026</time>
-            <h3>ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
-            <p>ВЕЛОСИПЕДНЫЙ СПОРТ • Краснодарский край</p>
-          </article>
-        </li>
-      </ul>
+      <div class="events">
+        <div class="event">
+          <time datetime="2026-04-19">19.04.2026 – 25.04.2026</time>
+          <h3>ПЕРВЕНСТВО ЕВРОПЫ</h3>
+          <p>ТХЭКВОНДО ИТФ • ГРЕЦИЯ</p>
+        </div>
+        
+        <div class="event">
+          <time datetime="2026-04-20">20.04.2026 – 22.04.2026</time>
+          <h3>ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
+          <p>ВЕЛОСИПЕДНЫЙ СПОРТ • Краснодарский край</p>
+        </div>
+        
+        <div class="event">
+          <time datetime="2026-01-03">03.01.2026 – 30.04.2026</time>
+          <h3>Первенство ПФО до 16 лет</h3>
+          <p>ХОККЕЙ ПО НАЗНАЧЕНИЮ • окончание сезона 2025-2026 гг.</p>
+        </div>
+      </div>
       
       <a href="ekp/index.html" class="btn btn-primary">Все мероприятия</a>
+    </section>
+
+    <section id="stats">
+      <h2>Статистика физкультуры и спорта в РФ</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Доля граждан, занимающихся спортом (2024)</h3>
+          <ul>
+            <li><strong>60,3%</strong> — в организованных формах</li>
+            <li><strong>69,3%</strong> — с учётом самостоятельно занимающихся</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3>Спортсмены, тренеры, судьи</h3>
+          <ul>
+            <li><strong>Спортсмены:</strong> 2 201 534 всего / 1 541 488 в регистре</li>
+            <li><strong>Тренеры:</strong> 139 129 всего / 58 614 в регистре</li>
+            <li><strong>Судьи:</strong> 104 273 всего / 214 в регистре</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3>Объекты спорта России</h3>
+          <ul>
+            <li><strong>361 903</strong> спортивных сооружений</li>
+            <li><strong>7 227</strong> включено во Всероссийский реестр</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
   </div>
 </main>
 
-<footer id="footer" role="contentinfo">
+<footer id="footer">
   <div class="container">
     <h2>Полезные ресурсы</h2>
-    <ul role="list">
-      <li role="listitem"><a href="https://minsport.gov.ru">Министерство спорта России</a></li>
-      <li role="listitem"><a href="https://gosuslugi.ru">Госуслуги</a></li>
+    <ul>
+      <li><a href="https://minsport.gov.ru">Министерство спорта России</a></li>
+      <li><a href="https://gosuslugi.ru">Госуслуги</a></li>
+      <li><a href="https://xn--b1ajcrh.xn--p1ai/">ВФСК ГТО</a></li>
     </ul>
     <p>© 2026 ФГИС «Спорт»</p>
   </div>
