@@ -4,161 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ФГИС «Спорт» — Цифровая платформа спорта России</title>
-  <meta name="description" content="Официальная платформа Министерства спорта РФ: сервисы для граждан и организаций, календарь мероприятий, статистика">
+  <meta name="description" content="Официальная платформа: сервисы для граждан и организаций, календарь мероприятий, статистика ФКиС">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Skip-link: первый элемент в DOM для скринридеров -->
 <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
 
-<!-- Шапка сайта -->
 <header class="header" role="banner">
   <div class="container header__inner">
+    <a href="/" class="header__logo" aria-label="ФГИС Спорт, главная страница">ФГИС «Спорт»</a>
     
-    <!-- Логотип -->
-    <a href="/" class="header__logo" aria-label="ФГИС Спорт, главная страница">
-      <span class="logo-text">ФГИС «Спорт»</span>
-    </a>
-
-    <!-- Основная навигация с выпадающими меню -->
     <nav class="main-nav" role="navigation" aria-label="Основное меню сайта">
-      <ul class="nav-list" role="menubar">
-        
-        <!-- Гражданам -->
-        <li class="nav-item" role="none">
-          <button 
-            class="nav-toggle" 
-            aria-expanded="false" 
-            aria-haspopup="true" 
-            aria-controls="menu-citizens"
-            id="nav-citizens-btn"
-          >
-            Гражданам
-          </button>
-          <ul 
-            id="menu-citizens" 
-            class="nav-dropdown" 
-            role="menu" 
-            aria-labelledby="nav-citizens-btn"
-            hidden
-          >
-            <li role="none"><a role="menuitem" href="#services-citizens">Сервисы для граждан</a></li>
-            <li role="none"><a role="menuitem" href="ekp/index.html">Календарь мероприятий</a></li>
-            <li role="none">
-              <a role="menuitem" href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer">
-                Госуслуги: спорт
-                <span aria-hidden="true" class="external-icon">↗</span>
-                <span class="sr-only">(откроется в новой вкладке)</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <!-- Организациям -->
-        <li class="nav-item" role="none">
-          <button 
-            class="nav-toggle" 
-            aria-expanded="false" 
-            aria-haspopup="true" 
-            aria-controls="menu-orgs"
-            id="nav-orgs-btn"
-          >
-            Организациям
-          </button>
-          <ul 
-            id="menu-orgs" 
-            class="nav-dropdown" 
-            role="menu" 
-            aria-labelledby="nav-orgs-btn"
-            hidden
-          >
-            <li role="none"><a role="menuitem" href="#services-orgs">Сервисы для организаций</a></li>
-            <li role="none"><a role="menuitem" href="#reference">Справочники</a></li>
-            <li role="none"><a role="menuitem" href="#tax">Налоговый вычет</a></li>
-          </ul>
-        </li>
-
-        <!-- Календарь (прямая ссылка на ЕКП) -->
-        <li class="nav-item" role="none">
-          <a href="ekp/index.html" role="menuitem" class="nav-link nav-link--highlight">
-            Все мероприятия
-          </a>
-        </li>
-
-        <!-- Статистика -->
-        <li class="nav-item" role="none">
-          <a href="#statistics" role="menuitem" class="nav-link">Статистика</a>
-        </li>
-
-        <!-- Ресурсы -->
-        <li class="nav-item" role="none">
-          <button 
-            class="nav-toggle" 
-            aria-expanded="false" 
-            aria-haspopup="true" 
-            aria-controls="menu-resources"
-            id="nav-resources-btn"
-          >
-            Ресурсы
-          </button>
-          <ul 
-            id="menu-resources" 
-            class="nav-dropdown" 
-            role="menu" 
-            aria-labelledby="nav-resources-btn"
-            hidden
-          >
-            <li role="none">
-              <a role="menuitem" href="https://minsport.gov.ru" target="_blank" rel="noopener noreferrer">
-                Минспорт России
-                <span aria-hidden="true" class="external-icon">↗</span>
-                <span class="sr-only">(откроется в новой вкладке)</span>
-              </a>
-            </li>
-            <li role="none">
-              <a role="menuitem" href="https://sportnorma.gov.ru" target="_blank" rel="noopener noreferrer">
-                «Спорт – норма жизни»
-                <span aria-hidden="true" class="external-icon">↗</span>
-                <span class="sr-only">(откроется в новой вкладке)</span>
-              </a>
-            </li>
-            <li role="none">
-              <a role="menuitem" href="https://xn--b1ajcrh.xn--p1ai/" target="_blank" rel="noopener noreferrer">
-                ВФСК ГТО
-                <span aria-hidden="true" class="external-icon">↗</span>
-                <span class="sr-only">(откроется в новой вкладке)</span>
-              </a>
-            </li>
-            <li role="none">
-              <a role="menuitem" href="https://gosuslugi.ru" target="_blank" rel="noopener noreferrer">
-                Госуслуги
-                <span aria-hidden="true" class="external-icon">↗</span>
-                <span class="sr-only">(откроется в новой вкладке)</span>
-              </a>
-            </li>
-            <li role="none">
-              <a role="menuitem" href="https://gamesoffuture.ru" target="_blank" rel="noopener noreferrer">
-                Игры будущего
-                <span aria-hidden="true" class="external-icon">↗</span>
-                <span class="sr-only">(откроется в новой вкладке)</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-
+      <ul class="nav-list">
+        <li><a href="#services" class="nav-link">Сервисы</a></li>
+        <li><a href="#calendar" class="nav-link">Календарь</a></li>
+        <li><a href="#statistics" class="nav-link">Статистика</a></li>
+        <li><a href="#footer" class="nav-link">Ресурсы</a></li>
       </ul>
     </nav>
-
   </div>
 </header>
 
-<!-- Основной контент -->
 <main id="main-content" role="main">
   <div class="container">
 
-    <!-- Герой-секция -->
-    <section class="hero" aria-labelledby="hero-heading">
+    <!-- ГЕРОЙ -->
+    <section id="hero" class="section section--hero" aria-labelledby="hero-heading" style="scroll-margin-top: 5rem;">
       <h1 id="hero-heading">Цифровые сервисы в сфере физической культуры и спорта</h1>
       <p class="hero__desc">
         Информационная платформа позволяет собирать и агрегировать данные сферы ФКиС 
@@ -167,440 +39,283 @@
       </p>
       <div class="hero__actions">
         <a href="#statistics" class="btn btn--primary">Перейти к статистике</a>
-        <a href="#how-it-works" class="btn btn--outline">Как это работает</a>
-        <a href="ekp/index.html" class="btn btn--secondary">Все мероприятия →</a>
+        <a href="ekp/index.html" class="btn btn--outline">Все мероприятия</a>
       </div>
     </section>
 
-    <!-- Сервисы для граждан -->
-    <section id="services-citizens" class="section" aria-labelledby="services-citizens-heading">
-      <h2 id="services-citizens-heading">Сервисы для граждан</h2>
+    <!-- СЕРВИСЫ -->
+    <section id="services" class="section" aria-labelledby="services-heading" style="scroll-margin-top: 5rem;">
+      <h2 id="services-heading">Сервисы</h2>
+
+      <!-- Для граждан -->
+      <article class="service-group" aria-labelledby="citizens-heading">
+        <h3 id="citizens-heading">Для граждан</h3>
+        <ul class="cards-grid" role="list" aria-label="Список сервисов для граждан">
+          <li class="card" role="listitem" aria-labelledby="card-uin">
+            <h4 id="card-uin" class="card__title">Проверка УИН ВФСК «ГТО»</h4>
+            <p class="card__desc">Проверьте УИН участника перед выполнением испытаний ВФСК «ГТО»</p>
+            <a href="/gto/uin" class="btn btn--small btn--primary">Проверить УИН</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-school">
+            <h4 id="card-school" class="card__title">Запись детей в спортивную школу</h4>
+            <p class="card__desc">Подать электронное заявление через портал Госуслуг</p>
+            <a href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline" aria-label="Перейти на портал Госуслуг для записи в спортивную школу (откроется в новой вкладке)">Перейти ↗</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-mass">
+            <h4 id="card-mass" class="card__title">Запись на участие в массовых физкультурных мероприятиях</h4>
+            <p class="card__desc">Подать электронное заявление через портал Госуслуг</p>
+            <a href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline" aria-label="Перейти на портал Госуслуг для записи на мероприятие (откроется в новой вкладке)">Перейти ↗</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-gto">
+            <h4 id="card-gto" class="card__title">Запись на сдачу нормативов ГТО</h4>
+            <p class="card__desc">Подать электронное заявление через портал Госуслуг</p>
+            <a href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline" aria-label="Перейти на портал Госуслуг для записи на ГТО (откроется в новой вкладке)">Перейти ↗</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-selector">
+            <h4 id="card-selector" class="card__title">Выбор спорта для ребёнка</h4>
+            <p class="card__desc">В настоящий момент проходит тестирование обновленной модели расчета показателей</p>
+            <a href="/sport-selector" class="btn btn--small btn--outline">Перейти</a>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Для организаций -->
+      <article class="service-group service-group--orgs" aria-labelledby="orgs-heading" style="margin-top: 2.5rem;">
+        <h3 id="orgs-heading">Для организаций</h3>
+        <ul class="cards-grid" role="list" aria-label="Список сервисов для организаций">
+          <li class="card" role="listitem" aria-labelledby="card-facilities">
+            <h4 id="card-facilities" class="card__title">Объекты спорта</h4>
+            <p class="card__desc">Найти объект спорта в своем регионе</p>
+            <a href="/facilities" class="btn btn--small btn--primary">Перейти</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-ekp">
+            <h4 id="card-ekp" class="card__title">Единый календарный план</h4>
+            <p class="card__desc">Единый календарный план физкультурных и спортивных мероприятий</p>
+            <a href="ekp/index.html" class="btn btn--small btn--outline">Посмотреть ЕКП</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-reference">
+            <h4 id="card-reference" class="card__title">Справочники и классификаторы</h4>
+            <p class="card__desc">Нормативно-справочная информация сферы ФКиС</p>
+            <a href="/reference" class="btn btn--small btn--outline">Перейти</a>
+          </li>
+          <li class="card" role="listitem" aria-labelledby="card-tax">
+            <h4 id="card-tax" class="card__title">Налоговый вычет за занятия спортом</h4>
+            <p class="card__desc">Перечень организаций, осуществляющих деятельность в сфере ФКиС</p>
+            <a href="/tax-deduction" class="btn btn--small btn--outline">Ознакомиться</a>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- КАЛЕНДАРЬ (ПРЕВЬЮ) -->
+    <section id="calendar" class="section" aria-labelledby="calendar-heading" style="scroll-margin-top: 5rem;">
+      <h2 id="calendar-heading">Единый календарный план</h2>
+      <p class="section-desc">Ближайшие спортивные и физкультурные мероприятия</p>
       
-      <div class="cards-grid" role="list" aria-label="Список сервисов для граждан">
-        
-        <article class="card card--service" role="listitem" aria-labelledby="service-gto-title">
-          <div class="card__header">
-            <h3 id="service-gto-title">Проверка УИН ВФСК «ГТО»</h3>
+      <ul class="event-list" role="list" aria-label="Список ближайших мероприятий">
+        <li class="event-card" role="listitem" aria-labelledby="evt-1">
+          <time class="event-date" datetime="2026-04-19/2026-04-25">19.04.2026 – 25.04.2026</time>
+          <div class="event-info">
+            <h3 id="evt-1" class="event-title">ПЕРВЕНСТВО ЕВРОПЫ</h3>
+            <p class="event-meta">ТХЭКВОНДО ИТФ • ГРЕЦИЯ</p>
           </div>
-          <div class="card__body">
-            <p>Проверьте УИН участника перед выполнением испытаний ВФСК «ГТО»</p>
+        </li>
+        <li class="event-card" role="listitem" aria-labelledby="evt-2">
+          <time class="event-date" datetime="2026-04-20/2026-04-22">20.04.2026 – 22.04.2026</time>
+          <div class="event-info">
+            <h3 id="evt-2" class="event-title">ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
+            <p class="event-meta">ВЕЛОСИПЕДНЫЙ СПОРТ • Краснодарский край</p>
           </div>
-          <div class="card__footer">
-            <a href="/gto/uin" class="btn btn--small btn--primary" aria-label="Проверить УИН участника ГТО">
-              Проверить УИН
-            </a>
+        </li>
+        <li class="event-card" role="listitem" aria-labelledby="evt-3">
+          <time class="event-date" datetime="2026-01-03/2026-04-30">03.01.2026 – 30.04.2026</time>
+          <div class="event-info">
+            <h3 id="evt-3" class="event-title">Первенство Приволжского федерального округа</h3>
+            <p class="event-meta">ХОККЕЙ ПО НАЗНАЧЕНИЮ • окончание сезона 2025–2026 гг.</p>
           </div>
-        </article>
+        </li>
+      </ul>
 
-        <article class="card card--service" role="listitem" aria-labelledby="service-school-title">
-          <div class="card__header">
-            <h3 id="service-school-title">Запись детей в спортивную школу</h3>
-          </div>
-          <div class="card__body">
-            <p>Подать электронное заявление через портал Госуслуг</p>
-          </div>
-          <div class="card__footer">
-            <a href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline" aria-label="Подать заявление в спортивную школу через Госуслуги (откроется в новой вкладке)">
-              Перейти
-              <span aria-hidden="true" class="external-icon">↗</span>
-              <span class="sr-only">(откроется в новой вкладке)</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--service" role="listitem" aria-labelledby="service-mass-title">
-          <div class="card__header">
-            <h3 id="service-mass-title">Запись на массовые мероприятия</h3>
-          </div>
-          <div class="card__body">
-            <p>Подать электронное заявление через портал Госуслуг</p>
-          </div>
-          <div class="card__footer">
-            <a href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline" aria-label="Записаться на массовое мероприятие через Госуслуги (откроется в новой вкладке)">
-              Перейти
-              <span aria-hidden="true" class="external-icon">↗</span>
-              <span class="sr-only">(откроется в новой вкладке)</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--service" role="listitem" aria-labelledby="service-gto-standards-title">
-          <div class="card__header">
-            <h3 id="service-gto-standards-title">Запись на нормативы ГТО</h3>
-          </div>
-          <div class="card__body">
-            <p>Подать электронное заявление через портал Госуслуг</p>
-          </div>
-          <div class="card__footer">
-            <a href="https://www.gosuslugi.ru/category/health/sport" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline" aria-label="Записаться на сдачу нормативов ГТО через Госуслуги (откроется в новой вкладке)">
-              Перейти
-              <span aria-hidden="true" class="external-icon">↗</span>
-              <span class="sr-only">(откроется в новой вкладке)</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--service" role="listitem" aria-labelledby="service-selector-title">
-          <div class="card__header">
-            <h3 id="service-selector-title">Выбор спорта для ребёнка</h3>
-          </div>
-          <div class="card__body">
-            <p>В настоящий момент проходит тестирование обновленной модели расчета показателей</p>
-          </div>
-          <div class="card__footer">
-            <a href="/sport-selector" class="btn btn--small btn--outline" aria-label="Попробовать сервис выбора спорта для ребёнка">
-              Перейти
-            </a>
-          </div>
-        </article>
-
-      </div>
+      <a href="ekp/index.html" class="btn btn--primary" aria-label="Перейти к полному календарю с фильтром мероприятий">Все мероприятия →</a>
     </section>
 
-    <!-- Сервисы для организаций -->
-    <section id="services-orgs" class="section" aria-labelledby="services-orgs-heading">
-      <h2 id="services-orgs-heading">Сервисы для организаций</h2>
-      
-      <div class="cards-grid" role="list" aria-label="Список сервисов для организаций">
-        
-        <article class="card card--service" role="listitem" aria-labelledby="org-facilities-title">
-          <div class="card__header">
-            <h3 id="org-facilities-title">Объекты спорта</h3>
-          </div>
-          <div class="card__body">
-            <p>Найти объект спорта в своем регионе</p>
-          </div>
-          <div class="card__footer">
-            <a href="/facilities" class="btn btn--small btn--primary" aria-label="Найти объект спорта в своём регионе">
-              Перейти
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--service" role="listitem" aria-labelledby="org-ekp-title">
-          <div class="card__header">
-            <h3 id="org-ekp-title">Единый календарный план</h3>
-          </div>
-          <div class="card__body">
-            <p>Единый календарный план физкультурных и спортивных мероприятий</p>
-          </div>
-          <div class="card__footer">
-            <a href="ekp/index.html" class="btn btn--small btn--outline" aria-label="Посмотреть единый календарный план мероприятий">
-              Посмотреть ЕКП
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--service" role="listitem" aria-labelledby="org-reference-title" id="reference">
-          <div class="card__header">
-            <h3 id="org-reference-title">Справочники и классификаторы</h3>
-          </div>
-          <div class="card__body">
-            <p>Нормативно-справочная информация сферы ФКиС</p>
-          </div>
-          <div class="card__footer">
-            <a href="/reference" class="btn btn--small btn--outline" aria-label="Перейти к справочникам и классификаторам">
-              Перейти
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--service" role="listitem" aria-labelledby="org-tax-title" id="tax">
-          <div class="card__header">
-            <h3 id="org-tax-title">Налоговый вычет за занятия спортом</h3>
-          </div>
-          <div class="card__body">
-            <p>Перечень организаций, осуществляющих деятельность в сфере ФКиС</p>
-          </div>
-          <div class="card__footer">
-            <a href="/tax-deduction" class="btn btn--small btn--outline" aria-label="Ознакомиться с перечнем организаций для налогового вычета">
-              Ознакомиться
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Статистика -->
-    <section id="statistics" class="section section--stats" aria-labelledby="statistics-heading">
-      <h2 id="statistics-heading">Статистика физкультуры и спорта в РФ</h2>
+    <!-- СТАТИСТИКА -->
+    <section id="statistics" class="section" aria-labelledby="stats-heading" style="scroll-margin-top: 5rem;">
+      <h2 id="stats-heading">Статистика физкультуры и спорта в РФ</h2>
       
       <div class="stats-grid">
-        
-        <!-- Доля занимающихся -->
-        <article class="stat-card" aria-labelledby="stat-participation-title">
-          <h3 id="stat-participation-title">Доля граждан, систематически занимающихся физической культурой и спортом (2024)</h3>
-          <div class="progress-group" role="group" aria-label="Процент занимающихся спортом">
-            <div class="progress-item">
-              <span class="progress-label">В организованных формах</span>
-              <div class="progress-bar" role="progressbar" aria-valuenow="60.3" aria-valuemin="0" aria-valuemax="100" aria-label="60,3 процента граждан занимаются в организованных формах">
-                <div class="progress-fill" style="width: 60.3%"></div>
-              </div>
-              <span class="progress-value" aria-hidden="true">60,3%</span>
-            </div>
-            <div class="progress-item">
-              <span class="progress-label">С учётом самостоятельно занимающихся граждан</span>
-              <div class="progress-bar" role="progressbar" aria-valuenow="69.3" aria-valuemin="0" aria-valuemax="100" aria-label="69,3 процента граждан занимаются спортом с учётом самостоятельно занимающихся">
-                <div class="progress-fill" style="width: 69.3%"></div>
-              </div>
-              <span class="progress-value" aria-hidden="true">69,3%</span>
-            </div>
-          </div>
+        <article class="stat-card" aria-labelledby="stat-participation">
+          <h3 id="stat-participation">Доля граждан, систематически занимающихся физической культурой и спортом (2024)</h3>
+          <ul class="stat-list" aria-label="Показатели вовлечённости">
+            <li><span class="stat-label">В организованных формах:</span> <strong>60,3%</strong></li>
+            <li><span class="stat-label">С учётом самостоятельно занимающихся граждан:</span> <strong>69,3%</strong></li>
+          </ul>
         </article>
 
-        <!-- Люди в реестре -->
-        <article class="stat-card" aria-labelledby="stat-people-title">
-          <h3 id="stat-people-title">Люди в реестре</h3>
-          <dl class="stat-list">
-            <div class="stat-row">
-              <dt>Спортсмены</dt>
-              <dd>
-                <span class="stat-total" aria-label="всего 2 миллиона 201 тысяча 534">2 201 534</span> всего / 
-                <span class="stat-registered" aria-label="включено в регистр 1 миллион 541 тысяча 488">1 541 488</span> в регистре
-              </dd>
-            </div>
-            <div class="stat-row">
-              <dt>Тренеры</dt>
-              <dd>
-                <span class="stat-total">139 129</span> всего / 
-                <span class="stat-registered">58 614</span> в регистре
-              </dd>
-            </div>
-            <div class="stat-row">
-              <dt>Судьи</dt>
-              <dd>
-                <span class="stat-total">104 273</span> всего / 
-                <span class="stat-registered">214</span> в регистре
-              </dd>
-            </div>
-          </dl>
+        <article class="stat-card" aria-labelledby="stat-people">
+          <h3 id="stat-people">Спортсмены, тренеры, судьи</h3>
+          <ul class="stat-list" aria-label="Реестр специалистов">
+            <li><strong>Спортсмены:</strong> 2 201 534 всего / 1 541 488 в регистре</li>
+            <li><strong>Тренеры:</strong> 139 129 всего / 58 614 в регистре</li>
+            <li><strong>Судьи:</strong> 104 273 всего / 214 в регистре</li>
+          </ul>
         </article>
 
-        <!-- Объекты спорта -->
-        <article class="stat-card" aria-labelledby="stat-facilities-title">
-          <h3 id="stat-facilities-title">Объекты спорта России</h3>
-          <dl class="stat-list">
-            <div class="stat-row">
-              <dt>Спортивных сооружений</dt>
-              <dd><span class="stat-total">361 903</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>Включено во Всероссийский реестр</dt>
-              <dd><span class="stat-registered">7 227</span></dd>
-            </div>
-          </dl>
+        <article class="stat-card" aria-labelledby="stat-facilities">
+          <h3 id="stat-facilities">Объекты спорта России</h3>
+          <ul class="stat-list" aria-label="Статистика сооружений">
+            <li><span class="stat-label">Спортивных сооружений:</span> <strong>361 903</strong></li>
+            <li><span class="stat-label">Включено во Всероссийский реестр:</span> <strong>7 227</strong></li>
+          </ul>
           <a href="/facilities/map" class="link-arrow" aria-label="Смотреть объекты спорта на карте">Смотреть на карте →</a>
         </article>
 
-        <!-- Мероприятия -->
-        <article class="stat-card" aria-labelledby="stat-events-title">
-          <h3 id="stat-events-title">Спортивные и физкультурные мероприятия</h3>
-          <dl class="stat-list">
-            <div class="stat-row">
-              <dt>Всего</dt>
-              <dd><span class="stat-total">12 464</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>Спортивные</dt>
-              <dd><span class="stat-registered">11 302</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>Физкультурные</dt>
-              <dd><span class="stat-registered">1 162</span></dd>
-            </div>
-          </dl>
-          <a href="ekp/index.html" class="link-arrow" aria-label="Посмотреть единый календарный план">Посмотреть ЕКП →</a>
+        <article class="stat-card" aria-labelledby="stat-events">
+          <h3 id="stat-events">Спортивные и физкультурные мероприятия</h3>
+          <ul class="stat-list" aria-label="Количество мероприятий">
+            <li><strong>Всего:</strong> 12 464</li>
+            <li><strong>Спортивные:</strong> 11 302</li>
+            <li><strong>Физкультурные:</strong> 1 162</li>
+          </ul>
+          <a href="ekp/index.html" class="link-arrow" aria-label="Перейти к календарному плану">Посмотреть ЕКП →</a>
         </article>
 
-        <!-- Виды спорта -->
-        <article class="stat-card" aria-labelledby="stat-sports-title">
-          <h3 id="stat-sports-title">Всероссийский реестр видов спорта</h3>
-          <dl class="stat-list">
-            <div class="stat-row">
-              <dt>Всего</dt>
-              <dd><span class="stat-total">202</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>• Общероссийские</dt>
-              <dd><span class="stat-registered">156</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>• Военно-прикладные</dt>
-              <dd><span class="stat-registered">23</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>• Признанные</dt>
-              <dd><span class="stat-registered">14</span></dd>
-            </div>
-            <div class="stat-row">
-              <dt>• Национальные</dt>
-              <dd><span class="stat-registered">9</span></dd>
-            </div>
-          </dl>
+        <article class="stat-card" aria-labelledby="stat-sports-registry">
+          <h3 id="stat-sports-registry">Всероссийский реестр видов спорта</h3>
+          <ul class="stat-list" aria-label="Категории видов спорта">
+            <li><strong>Всего:</strong> 202</li>
+            <li>• Общероссийские: 156</li>
+            <li>• Военно-прикладные: 23</li>
+            <li>• Признанные: 14</li>
+            <li>• Национальные: 9</li>
+          </ul>
           <a href="/sports" class="link-arrow" aria-label="Загрузить реестр видов спорта">Загрузить реестр →</a>
         </article>
 
-        <!-- Федерации -->
-        <article class="stat-card" aria-labelledby="stat-federations-title">
-          <h3 id="stat-federations-title">Спортивные федерации</h3>
-          <dl class="stat-list">
-            <div class="stat-row">
-              <dt>Общероссийские спортивные федерации</dt>
-              <dd><a href="/federations/all" class="link-inline">Посмотреть</a></dd>
-            </div>
-            <div class="stat-row">
-              <dt>Аккредитованные региональные</dt>
-              <dd><span class="stat-registered">5 386</span> <a href="/federations/regional" class="link-inline">Посмотреть</a></dd>
-            </div>
-            <div class="stat-row">
-              <dt>Организации спортивной подготовки</dt>
-              <dd><a href="/organizations" class="link-inline">Посмотреть</a></dd>
-            </div>
-          </dl>
+        <article class="stat-card" aria-labelledby="stat-federations">
+          <h3 id="stat-federations">Федерации и организации</h3>
+          <ul class="stat-list" aria-label="Статистика федераций">
+            <li><strong>Общероссийские спортивные федерации:</strong> <a href="/federations" class="link-inline">Посмотреть</a></li>
+            <li><strong>Аккредитованные региональные:</strong> 5 386 <a href="/federations/regional" class="link-inline">Посмотреть</a></li>
+            <li><strong>Организации спортивной подготовки:</strong> <a href="/organizations" class="link-inline">Посмотреть</a></li>
+          </ul>
         </article>
-
       </div>
     </section>
 
-    <!-- Популярные виды спорта -->
+    <!-- ПОПУЛЯРНЫЕ ВИДЫ СПОРТА -->
     <section class="section" aria-labelledby="popular-sports-heading">
       <h2 id="popular-sports-heading">Популярные виды спорта в России</h2>
       <p class="section-subtitle">по числу спортсменов по итогам 2024 года</p>
       
-      <ol class="sports-list" role="list" aria-label="Рейтинг видов спорта по популярности">
-        
+      <ol class="sports-list" role="list" aria-label="Рейтинг видов спорта">
         <li class="sport-item" role="listitem">
           <span class="sport-rank" aria-label="Первое место">1.</span>
           <div class="sport-info">
             <h3 class="sport-name">Футбол</h3>
-            <dl class="sport-stats">
-              <dt>Спортсменов</dt><dd>280 985</dd>
-              <dt>Тренеров</dt><dd>10 795</dd>
-              <dt>Судей</dt><dd>5 158</dd>
-            </dl>
+            <ul class="sport-stats">
+              <li><strong>Спортсменов:</strong> 280 985</li>
+              <li><strong>Тренеров:</strong> 10 795</li>
+              <li><strong>Судей:</strong> 5 158</li>
+            </ul>
           </div>
         </li>
-
         <li class="sport-item" role="listitem">
           <span class="sport-rank" aria-label="Второе место">2.</span>
           <div class="sport-info">
             <h3 class="sport-name">Спортивная борьба</h3>
-            <dl class="sport-stats">
-              <dt>Спортсменов</dt><dd>178 731</dd>
-              <dt>Тренеров</dt><dd>6 208</dd>
-              <dt>Судей</dt><dd>2 177</dd>
-            </dl>
+            <ul class="sport-stats">
+              <li><strong>Спортсменов:</strong> 178 731</li>
+              <li><strong>Тренеров:</strong> 6 208</li>
+              <li><strong>Судей:</strong> 2 177</li>
+            </ul>
           </div>
         </li>
-
         <li class="sport-item" role="listitem">
           <span class="sport-rank" aria-label="Третье место">3.</span>
           <div class="sport-info">
             <h3 class="sport-name">Плавание</h3>
-            <dl class="sport-stats">
-              <dt>Спортсменов</dt><dd>140 530</dd>
-              <dt>Тренеров</dt><dd>6 129</dd>
-              <dt>Судей</dt><dd>5 314</dd>
-            </dl>
+            <ul class="sport-stats">
+              <li><strong>Спортсменов:</strong> 140 530</li>
+              <li><strong>Тренеров:</strong> 6 129</li>
+              <li><strong>Судей:</strong> 5 314</li>
+            </ul>
           </div>
         </li>
-
         <li class="sport-item" role="listitem">
           <span class="sport-rank" aria-label="Четвёртое место">4.</span>
           <div class="sport-info">
             <h3 class="sport-name">Дзюдо</h3>
-            <dl class="sport-stats">
-              <dt>Спортсменов</dt><dd>124 917</dd>
-              <dt>Тренеров</dt><dd>3 792</dd>
-              <dt>Судей</dt><dd>2 388</dd>
-            </dl>
+            <ul class="sport-stats">
+              <li><strong>Спортсменов:</strong> 124 917</li>
+              <li><strong>Тренеров:</strong> 3 792</li>
+              <li><strong>Судей:</strong> 2 388</li>
+            </ul>
           </div>
         </li>
-
         <li class="sport-item" role="listitem">
           <span class="sport-rank" aria-label="Пятое место">5.</span>
           <div class="sport-info">
             <h3 class="sport-name">Лёгкая атлетика</h3>
-            <dl class="sport-stats">
-              <dt>Спортсменов</dt><dd>120 479</dd>
-              <dt>Тренеров</dt><dd>5 142</dd>
-              <dt>Судей</dt><dd>7 678</dd>
-            </dl>
+            <ul class="sport-stats">
+              <li><strong>Спортсменов:</strong> 120 479</li>
+              <li><strong>Тренеров:</strong> 5 142</li>
+              <li><strong>Судей:</strong> 7 678</li>
+            </ul>
           </div>
         </li>
-
         <li class="sport-item" role="listitem">
           <span class="sport-rank" aria-label="Шестое место">6.</span>
           <div class="sport-info">
             <h3 class="sport-name">Бокс</h3>
-            <dl class="sport-stats">
-              <dt>Спортсменов</dt><dd>117 350</dd>
-              <dt>Тренеров</dt><dd>4 472</dd>
-              <dt>Судей</dt><dd>2 261</dd>
-            </dl>
+            <ul class="sport-stats">
+              <li><strong>Спортсменов:</strong> 117 350</li>
+              <li><strong>Тренеров:</strong> 4 472</li>
+              <li><strong>Судей:</strong> 2 261</li>
+            </ul>
           </div>
         </li>
-
       </ol>
       <a href="/sports" class="link-arrow">Посмотреть все виды →</a>
-    </section>
-
-    <!-- Как это работает -->
-    <section id="how-it-works" class="section section--info" aria-labelledby="how-heading">
-      <h2 id="how-heading">Как это работает</h2>
-      <p>ФГИС «Спорт» — это единая цифровая платформа, которая:</p>
-      <ul class="info-list">
-        <li>Собирает и агрегирует данные сферы физической культуры и спорта</li>
-        <li>Обеспечивает прозрачность процессов реализации государственной политики</li>
-        <li>Предоставляет цифровые сервисы для граждан и организаций</li>
-        <li>Формирует статистику для принятия управленческих решений</li>
-      </ul>
     </section>
 
   </div>
 </main>
 
-<!-- Подвал -->
-<footer class="footer" role="contentinfo" id="footer">
+<footer id="footer" class="footer" role="contentinfo" aria-labelledby="footer-heading">
   <div class="container">
     <nav class="footer__nav" aria-label="Полезные ресурсы">
-      <h2 class="footer__title">Полезные ресурсы</h2>
-      <ul class="footer__list">
-        <li>
-          <a href="https://minsport.gov.ru" target="_blank" rel="noopener noreferrer">
+      <h2 id="footer-heading" class="footer__title">Полезные ресурсы</h2>
+      <ul class="footer__list" role="list">
+        <li class="footer__item" role="listitem">
+          <a href="https://minsport.gov.ru" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Министерство спорта России (откроется в новой вкладке)">
             Министерство спорта России
-            <span class="sr-only">(откроется в новой вкладке)</span>
           </a>
-          <span class="footer-desc">Федеральный орган исполнительной власти, осуществляющий функции по выработке и реализации государственной политики в сфере физической культуры и спорта</span>
+          <p class="footer__desc">Федеральный орган исполнительной власти, осуществляющий функции по выработке и реализации государственной политики в сфере физической культуры и спорта</p>
         </li>
-        <li>
-          <a href="https://sportnorma.gov.ru" target="_blank" rel="noopener noreferrer">
+        <li class="footer__item" role="listitem">
+          <a href="https://sportnorma.gov.ru" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Федеральный проект Спорт – норма жизни (откроется в новой вкладке)">
             «Спорт – норма жизни»
-            <span class="sr-only">(откроется в новой вкладке)</span>
           </a>
-          <span class="footer-desc">Федеральный проект, являющийся частью национального проекта «Демография», цель которого повысить качество жизни россиян через сферу ФКиС</span>
+          <p class="footer__desc">Федеральный проект, являющийся частью национального проекта «Демография», цель которого повысить качество жизни россиян через сферу ФКиС</p>
         </li>
-        <li>
-          <a href="https://gosuslugi.ru" target="_blank" rel="noopener noreferrer">
+        <li class="footer__item" role="listitem">
+          <a href="https://gosuslugi.ru" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Госуслуги — Единый портал (откроется в новой вкладке)">
             Госуслуги
-            <span class="sr-only">(откроется в новой вкладке)</span>
           </a>
-          <span class="footer-desc">Единая цифровая платформа государства, обеспечивающая увеличение скорости разработки цифровых сервисов</span>
+          <p class="footer__desc">Единая цифровая платформа государства, обеспечивающая увеличение скорости разработки цифровых сервисов</p>
         </li>
-        <li>
-          <a href="https://xn--b1ajcrh.xn--p1ai/" target="_blank" rel="noopener noreferrer">
+        <li class="footer__item" role="listitem">
+          <a href="https://xn--b1ajcrh.xn--p1ai/" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="ВФСК ГТО — Единый методический ресурс (откроется в новой вкладке)">
             ВФСК ГТО
-            <span class="sr-only">(откроется в новой вкладке)</span>
           </a>
-          <span class="footer-desc">Единый методический информационный ресурс, публикующий полезную информацию для граждан РФ, задействованных в сфере ФКиС</span>
+          <p class="footer__desc">Единый методический информационный ресурс, публикующий полезную информацию для граждан РФ, задействованных в сфере ФКиС</p>
         </li>
-        <li>
-          <a href="https://gamesoffuture.ru" target="_blank" rel="noopener noreferrer">
+        <li class="footer__item" role="listitem">
+          <a href="https://gamesoffuture.ru" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Игры будущего — технологичный турнир (откроется в новой вкладке)">
             Игры будущего
-            <span class="sr-only">(откроется в новой вкладке)</span>
           </a>
-          <span class="footer-desc">Технологичный турнир нового формата, объединяющий спорт, киберспорт и технологии</span>
+          <p class="footer__desc">Технологичный турнир нового формата, объединяющий спорт, киберспорт и технологии и позволяющий спортсмену проявить себя как физическом мире, так и в цифровом</p>
         </li>
       </ul>
     </nav>

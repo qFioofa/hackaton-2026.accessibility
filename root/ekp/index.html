@@ -13,21 +13,13 @@
 
 <header class="header" role="banner">
   <div class="container header__inner">
-    <a href="../index.html" class="header__logo" aria-label="ФГИС Спорт, вернуться на главную">
-      <span class="logo-text">← ФГИС «Спорт»</span>
-    </a>
+    <a href="../index.html" class="header__logo" aria-label="ФГИС Спорт, вернуться на главную">← ФГИС «Спорт»</a>
     
     <nav class="main-nav" role="navigation" aria-label="Навигация по сайту">
-      <ul class="nav-list" role="menubar">
-        <li class="nav-item" role="none">
-          <a href="../index.html#services-citizens" role="menuitem" class="nav-link">Сервисы</a>
-        </li>
-        <li class="nav-item" role="none">
-          <a href="#" role="menuitem" class="nav-link nav-link--active" aria-current="page">Календарь</a>
-        </li>
-        <li class="nav-item" role="none">
-          <a href="../index.html#statistics" role="menuitem" class="nav-link">Статистика</a>
-        </li>
+      <ul class="nav-list">
+        <li><a href="../index.html#services" class="nav-link">Сервисы</a></li>
+        <li><a href="#" class="nav-link nav-link--active" aria-current="page">Календарь</a></li>
+        <li><a href="../index.html#statistics" class="nav-link">Статистика</a></li>
       </ul>
     </nav>
   </div>
@@ -36,70 +28,49 @@
 <main id="main-content" role="main">
   <div class="container">
 
-    <!-- Заголовок страницы -->
-    <section class="ekp-hero" aria-labelledby="ekp-heading">
+    <section class="ekp-hero" aria-labelledby="ekp-heading" style="scroll-margin-top: 5rem;">
       <h1 id="ekp-heading">Единый календарный план</h1>
       <p class="ekp-desc">Найдите спортивное или физкультурное мероприятие по дате, виду спорта или региону проведения</p>
       
-      <!-- Кнопка открытия фильтра -->
-      <button 
-        id="filter-toggle-btn" 
-        class="btn btn--primary btn--large" 
-        aria-expanded="false" 
-        aria-controls="filter-panel"
-        aria-label="Открыть панель фильтрации мероприятий"
-      >
+      <button id="filter-toggle" class="btn btn--primary btn--large" aria-expanded="false" aria-controls="filter-panel" aria-label="Открыть панель фильтрации мероприятий">
         🔍 Фильтр мероприятий
-        <span class="sr-only">(нажмите для настройки параметров поиска)</span>
       </button>
     </section>
 
-    <!-- Панель фильтра (скрыта по умолчанию) -->
-    <section 
-      id="filter-panel" 
-      class="filter-panel" 
-      role="region" 
-      aria-labelledby="filter-heading"
-      hidden
-    >
+    <section id="filter-panel" class="filter-panel" role="region" aria-labelledby="filter-heading" hidden style="scroll-margin-top: 5rem;">
       <h2 id="filter-heading" class="visually-hidden">Фильтр поиска мероприятий</h2>
       
-      <form id="ekp-search-form" class="filter-form" role="search" aria-label="Поиск мероприятий по параметрам">
+      <form id="ekp-form" class="filter-form" role="search" aria-label="Поиск мероприятий по параметрам">
         
-        <!-- Тип мероприятия -->
         <fieldset class="filter-group">
           <legend>Тип мероприятия</legend>
           <div class="radio-group" role="radiogroup" aria-label="Выберите тип мероприятия">
             <label class="radio-label">
-              <input type="radio" name="event_type" value="sport" checked id="type-sport">
+              <input type="radio" name="type" value="sport" checked id="type-sport">
               <span>Спортивные</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="event_type" value="mass" id="type-mass">
+              <input type="radio" name="type" value="mass" id="type-mass">
               <span>Физкультурные</span>
             </label>
           </div>
-          <span id="type-hint" class="hint">Спортивные — соревнования, первенства. Физкультурные — массовые мероприятия, фестивали</span>
         </fieldset>
 
-        <!-- Период дат -->
         <fieldset class="filter-group">
           <legend>Период проведения</legend>
           <div class="date-range">
             <div class="date-input">
               <label for="date-from">Дата с</label>
-              <input type="date" id="date-from" name="date_from" aria-describedby="date-from-hint">
-              <span id="date-from-hint" class="hint">Например: 2026-04-01</span>
+              <input type="date" id="date-from" name="date_from" aria-describedby="date-hint">
             </div>
             <div class="date-input">
               <label for="date-to">Дата по</label>
-              <input type="date" id="date-to" name="date_to" aria-describedby="date-to-hint">
-              <span id="date-to-hint" class="hint">Например: 2026-04-30</span>
+              <input type="date" id="date-to" name="date_to" aria-describedby="date-hint">
             </div>
+            <span id="date-hint" class="hint">Укажите диапазон дат или оставьте поля пустыми</span>
           </div>
         </fieldset>
 
-        <!-- Вид спорта -->
         <div class="filter-group">
           <label for="sport-select">Вид спорта</label>
           <select id="sport-select" name="sport" aria-describedby="sport-hint">
@@ -108,119 +79,68 @@
             <option value="cycling">Велосипедный спорт</option>
             <option value="hockey">Хоккей по назначению</option>
             <option value="football">Футбол</option>
-            <option value="wrestling">Спортивная борьба</option>
-            <option value="swimming">Плавание</option>
-            <option value="judo">Дзюдо</option>
-            <option value="athletics">Лёгкая атлетика</option>
-            <option value="boxing">Бокс</option>
           </select>
           <span id="sport-hint" class="hint">Выберите вид спорта из списка или оставьте «Все виды»</span>
         </div>
 
-        <!-- Регион -->
         <div class="filter-group">
           <label for="region-select">Регион проведения</label>
           <select id="region-select" name="region" aria-describedby="region-hint">
             <option value="">Все регионы</option>
             <option value="greece">Греция</option>
             <option value="krd">Краснодарский край</option>
-            <option value="pfo">Приволжский федеральный округ</option>
-            <option value="mow">Москва</option>
-            <option value="spb">Санкт-Петербург</option>
+            <option value="pfo">Приволжский ФО</option>
           </select>
-          <span id="region-hint" class="hint">Выберите регион или оставьте «Все регионы» для поиска по всей России</span>
+          <span id="region-hint" class="hint">Выберите регион или оставьте «Все регионы»</span>
         </div>
 
-        <!-- Кнопки действий -->
         <div class="filter-actions">
-          <button type="submit" class="btn btn--primary btn--large">
-            🔍 Найти мероприятия
-          </button>
-          <button type="button" id="filter-reset-btn" class="btn btn--outline">
-            ♻ Сбросить фильтр
-          </button>
-          <button type="button" id="filter-close-btn" class="btn btn--ghost" aria-label="Закрыть панель фильтра без применения">
-            ✕ Закрыть
-          </button>
+          <button type="submit" class="btn btn--primary btn--large">🔍 Найти мероприятия</button>
+          <button type="button" id="filter-reset" class="btn btn--outline">♻ Сбросить фильтр</button>
+          <button type="button" id="filter-close" class="btn btn--ghost" aria-label="Закрыть панель фильтра">✕ Закрыть</button>
         </div>
 
-        <!-- Сообщения для скринридеров -->
         <div id="form-status" role="status" aria-live="polite" class="sr-only"></div>
         <div id="form-error" role="alert" aria-live="assertive" class="sr-only"></div>
-
       </form>
     </section>
 
-    <!-- Результаты поиска -->
-    <section id="results-section" class="results-section" aria-labelledby="results-heading" aria-live="polite">
-      <h2 id="results-heading">Найдено мероприятий: <span id="results-count" aria-atomic="true">3</span></h2>
+    <section id="results" class="results-section" aria-labelledby="results-heading" aria-live="polite">
+      <h2 id="results-heading">Найдено мероприятий: <span id="results-count">3</span></h2>
       
       <ul class="event-list" role="list" aria-label="Список найденных мероприятий">
-        
-        <li class="event-card" role="listitem" aria-labelledby="event-1-title">
-          <time class="event-date" datetime="2026-04-19/2026-04-25">
-            <span class="date-start">19.04.2026</span> – <span class="date-end">25.04.2026</span>
-          </time>
+        <li class="event-card" role="listitem" aria-labelledby="evt-1">
+          <time class="event-date" datetime="2026-04-19/2026-04-25">19.04.2026 – 25.04.2026</time>
           <div class="event-info">
-            <h3 id="event-1-title" class="event-title">ПЕРВЕНСТВО ЕВРОПЫ</h3>
-            <p class="event-meta">
-              <strong>Вид спорта:</strong> Тхэквондо ИТФ • 
-              <strong>Место:</strong> Греция
-            </p>
-            <p class="event-desc">Международное соревнование среди спортсменов до 21 года</p>
+            <h3 id="evt-1" class="event-title">ПЕРВЕНСТВО ЕВРОПЫ</h3>
+            <p class="event-meta">ТХЭКВОНДО ИТФ • ГРЕЦИЯ</p>
           </div>
-          <a href="/events/1" class="btn btn--small" aria-label="Подробнее о Первенстве Европы по тхэквондо">
-            Подробнее
-          </a>
+          <a href="/events/1" class="btn btn--small" aria-label="Подробнее о Первенстве Европы по тхэквондо">Подробнее</a>
         </li>
-
-        <li class="event-card" role="listitem" aria-labelledby="event-2-title">
-          <time class="event-date" datetime="2026-04-20/2026-04-22">
-            <span class="date-start">20.04.2026</span> – <span class="date-end">22.04.2026</span>
-          </time>
+        <li class="event-card" role="listitem" aria-labelledby="evt-2">
+          <time class="event-date" datetime="2026-04-20/2026-04-22">20.04.2026 – 22.04.2026</time>
           <div class="event-info">
-            <h3 id="event-2-title" class="event-title">ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
-            <p class="event-meta">
-              <strong>Вид спорта:</strong> Велосипедный спорт • 
-              <strong>Место:</strong> Краснодарский край
-            </p>
-            <p class="event-desc">Шоссейные гонки среди юниоров</p>
+            <h3 id="evt-2" class="event-title">ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
+            <p class="event-meta">ВЕЛОСИПЕДНЫЙ СПОРТ • Краснодарский край</p>
           </div>
-          <a href="/events/2" class="btn btn--small" aria-label="Подробнее о Всероссийских соревнованиях по велоспорту">
-            Подробнее
-          </a>
+          <a href="/events/2" class="btn btn--small" aria-label="Подробнее о Всероссийских соревнованиях">Подробнее</a>
         </li>
-
-        <li class="event-card" role="listitem" aria-labelledby="event-3-title">
-          <time class="event-date" datetime="2026-01-03/2026-04-30">
-            <span class="date-start">03.01.2026</span> – <span class="date-end">30.04.2026</span>
-          </time>
+        <li class="event-card" role="listitem" aria-labelledby="evt-3">
+          <time class="event-date" datetime="2026-01-03/2026-04-30">03.01.2026 – 30.04.2026</time>
           <div class="event-info">
-            <h3 id="event-3-title" class="event-title">Первенство ПФО до 16 лет</h3>
-            <p class="event-meta">
-              <strong>Вид спорта:</strong> Хоккей по назначению • 
-              <strong>Место:</strong> Приволжский ФО
-            </p>
-            <p class="event-desc">Окончание сезона 2025–2026 годов</p>
+            <h3 id="evt-3" class="event-title">Первенство ПФО до 16 лет</h3>
+            <p class="event-meta">ХОККЕЙ ПО НАЗНАЧЕНИЮ • окончание сезона 2025–2026 гг.</p>
           </div>
-          <a href="/events/3" class="btn btn--small" aria-label="Подробнее о Первенстве ПФО по хоккею">
-            Подробнее
-          </a>
+          <a href="/events/3" class="btn btn--small" aria-label="Подробнее о Первенстве ПФО">Подробнее</a>
         </li>
-
       </ul>
 
-      <!-- Пагинация (доступная) -->
-      <nav class="pagination" aria-label="Навигация по страницам результатов поиска">
-        <button class="page-btn" disabled aria-disabled="true" aria-label="Предыдущая страница недоступна">
-          ← Назад
-        </button>
-        <button class="page-btn page-btn--active" aria-current="page" aria-label="Страница 1, текущая">1</button>
+      <nav class="pagination" aria-label="Навигация по страницам результатов">
+        <button class="page-btn" disabled aria-disabled="true" aria-label="Предыдущая страница недоступна">← Назад</button>
+        <button class="page-btn page-btn--active" aria-current="page" aria-label="Текущая страница 1">1</button>
         <button class="page-btn" aria-label="Перейти на страницу 2">2</button>
         <button class="page-btn" aria-label="Перейти на страницу 3">3</button>
-        <button class="page-btn" aria-label="Перейти на следующую страницу">
-          Вперёд →
-        </button>
+        <button class="page-btn" aria-label="Перейти на следующую страницу">Вперёд →</button>
       </nav>
     </section>
 
