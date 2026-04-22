@@ -1714,12 +1714,48 @@
     }
 
     .resource-logo {
-      height: 40px;
+      height: 56px;
       display: flex;
       align-items: center;
-      font-weight: 700;
-      font-size: 20px;
-      color: var(--color-text-main);
+      justify-content: center;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    
+    .resource-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    [data-theme="dark"] .resource-logo {
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    
+    [data-theme="contrast"] .resource-logo {
+      background: #ffffff;
+      border: 2px solid #FFFFFF;
+      box-shadow: none;
+    }
+    
+    :focus-visible .resource-card {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+    
+    [data-theme="dark"] :focus-visible .resource-card {
+      outline-color: #fff;
+    }
+    
+    [data-theme="contrast"] :focus-visible .resource-card {
+      outline-color: #FFFF00;
     }
 
     .resource-card p {
@@ -2616,43 +2652,55 @@
 
           <div class="resources-grid">
             <a href="https://minsport.gov.ru" target="_blank" rel="noopener" class="resource-card"
-              aria-label="Министерство спорта России —   официальный сайт — откроется в новой вкладке">
-              <div class="resource-logo">Минспорт России</div>
+              aria-label="Министерство спорта России — официальный сайт — откроется в новой вкладке">
+              <div class="resource-logo" role="img" aria-label="Логотип Министерства спорта России">
+                <img src="static/герб.svg" alt="" loading="lazy">
+              </div>
               <p>Федеральный орган исполнительной власти, осуществляющий функции по выработке и реализации
                 государственной политики в сфере физической культуры и спорта</p>
             </a>
 
             <a href="https://национальныепроекты.рф/mediaProjects/dvizhenie-k-luchshemu/" target="_blank" rel="noopener"
               class="resource-card" aria-label="Спорт — норма жизни — федеральный проект — откроется в новой вкладке">
-              <div class="resource-logo">Спорт — норма жизни</div>
+              <div class="resource-logo" role="img" aria-label="Логотип Спорт — норма жизни">
+                <img src="static/спортЖизни.svg" alt="" loading="lazy">
+              </div>
               <p>Федеральный проект, являющийся частью национального проекта «Демография», цель которого повысить
                 качество жизни россиян через сферу ФКиС</p>
             </a>
 
             <a href="https://platform.gov.ru" target="_blank" rel="noopener" class="resource-card"
               aria-label="Гостех — единая цифровая платформа государства — откроется в новой вкладке">
-              <div class="resource-logo"> Гостех</div>
+              <div class="resource-logo" role="img" aria-label="Логотип Гостех">
+                <img src="static/гостех.svg" alt="" loading="lazy">
+              </div>
               <p>Единая цифровая платформа государства, обеспечивающая увеличение скорости разработки цифровых сервисов
               </p>
             </a>
 
             <a href="http://emir.gov.ru" target="_blank" rel="noopener" class="resource-card"
               aria-label="ЕМИР — единый методический информационный ресурс — откроется в новой вкладке">
-              <div class="resource-logo">ЕМИР</div>
+              <div class="resource-logo" role="img" aria-label="Логотип ЕМИР">
+                <img src="static/емир.svg" alt="" loading="lazy">
+              </div>
               <p>Единый методический информационный ресурс, публикующий полезную информацию для граждан РФ,
                 задействованных в сфере ФКиС</p>
             </a>
 
             <a href="https://gosuslugi.ru" target="_blank" rel="noopener" class="resource-card"
               aria-label="Госуслуги — портал государственных услуг — откроется в новой вкладке">
-              <div class="resource-logo">Госуслуги</div>
+              <div class="resource-logo" role="img" aria-label="Логотип Госуслуги">
+                <img src="static/госуслуги.svg" alt="" loading="lazy">
+              </div>
               <p>Федеральная государственная информационная система «Единый портал государственных и муниципальных
                 услуг»</p>
             </a>
 
             <a href="https://gofuture.games" target="_blank" rel="noopener" class="resource-card"
               aria-label="Игры будущего — технологичный турнир нового формата — откроется в новой вкладке">
-              <div class="resource-logo">Игры будущего</div>
+              <div class="resource-logo" role="img" aria-label="Логотип Игры будущего">
+                <img src="static/игрыБудущего.svg" alt="" loading="lazy">
+              </div>
               <p>Технологичный турнир нового формата, объединяющий спорт, киберспорт и технологии</p>
             </a>
           </div>
