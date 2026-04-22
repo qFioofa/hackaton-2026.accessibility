@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Единый календарный план — ФГИС «Спорт»</title>
+  <meta name="description" content="Поиск спортивных и физкультурных мероприятий по дате, виду спорта и региону">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="ekp-page">
+
+<a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+<header class="header" role="banner">
+  <div class="container header__inner">
+    <a href="../index.html" class="header__logo" aria-label="ФГИС Спорт, вернуться на главную">← ФГИС «Спорт»</a>
+    
+    <nav class="main-nav" role="navigation" aria-label="Навигация по сайту">
+      <ul class="nav-list">
+        <li><a href="../index.html#services" class="nav-link">Сервисы</a></li>
+        <li><a href="#" class="nav-link nav-link--active" aria-current="page">Календарь</a></li>
+        <li><a href="../index.html#statistics" class="nav-link">Статистика</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" role="main">
+  <div class="container">
+
+    <section class="ekp-hero" aria-labelledby="ekp-heading" style="scroll-margin-top: 5rem;">
+      <h1 id="ekp-heading">Единый календарный план</h1>
+      <p class="ekp-desc">Найдите спортивное или физкультурное мероприятие по дате, виду спорта или региону проведения</p>
+      
+      <button id="filter-toggle" class="btn btn--primary btn--large" aria-expanded="false" aria-controls="filter-panel" aria-label="Открыть панель фильтрации мероприятий">
+        🔍 Фильтр мероприятий
+      </button>
+    </section>
+
+    <section id="filter-panel" class="filter-panel" role="region" aria-labelledby="filter-heading" hidden style="scroll-margin-top: 5rem;">
+      <h2 id="filter-heading" class="visually-hidden">Фильтр поиска мероприятий</h2>
+      
+      <form id="ekp-form" class="filter-form" role="search" aria-label="Поиск мероприятий по параметрам">
+        
+        <fieldset class="filter-group">
+          <legend>Тип мероприятия</legend>
+          <div class="radio-group" role="radiogroup" aria-label="Выберите тип мероприятия">
+            <label class="radio-label">
+              <input type="radio" name="type" value="sport" checked id="type-sport">
+              <span>Спортивные</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="type" value="mass" id="type-mass">
+              <span>Физкультурные</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="filter-group">
+          <legend>Период проведения</legend>
+          <div class="date-range">
+            <div class="date-input">
+              <label for="date-from">Дата с</label>
+              <input type="date" id="date-from" name="date_from" aria-describedby="date-hint">
+            </div>
+            <div class="date-input">
+              <label for="date-to">Дата по</label>
+              <input type="date" id="date-to" name="date_to" aria-describedby="date-hint">
+            </div>
+            <span id="date-hint" class="hint">Укажите диапазон дат или оставьте поля пустыми</span>
+          </div>
+        </fieldset>
+
+        <div class="filter-group">
+          <label for="sport-select">Вид спорта</label>
+          <select id="sport-select" name="sport" aria-describedby="sport-hint">
+            <option value="">Все виды спорта</option>
+            <option value="tkd">Тхэквондо ИТФ</option>
+            <option value="cycling">Велосипедный спорт</option>
+            <option value="hockey">Хоккей по назначению</option>
+            <option value="football">Футбол</option>
+          </select>
+          <span id="sport-hint" class="hint">Выберите вид спорта из списка или оставьте «Все виды»</span>
+        </div>
+
+        <div class="filter-group">
+          <label for="region-select">Регион проведения</label>
+          <select id="region-select" name="region" aria-describedby="region-hint">
+            <option value="">Все регионы</option>
+            <option value="greece">Греция</option>
+            <option value="krd">Краснодарский край</option>
+            <option value="pfo">Приволжский ФО</option>
+          </select>
+          <span id="region-hint" class="hint">Выберите регион или оставьте «Все регионы»</span>
+        </div>
+
+        <div class="filter-actions">
+          <button type="submit" class="btn btn--primary btn--large">🔍 Найти мероприятия</button>
+          <button type="button" id="filter-reset" class="btn btn--outline">♻ Сбросить фильтр</button>
+          <button type="button" id="filter-close" class="btn btn--ghost" aria-label="Закрыть панель фильтра">✕ Закрыть</button>
+        </div>
+
+        <div id="form-status" role="status" aria-live="polite" class="sr-only"></div>
+        <div id="form-error" role="alert" aria-live="assertive" class="sr-only"></div>
+      </form>
+    </section>
+
+    <section id="results" class="results-section" aria-labelledby="results-heading" aria-live="polite">
+      <h2 id="results-heading">Найдено мероприятий: <span id="results-count">3</span></h2>
+      
+      <ul class="event-list" role="list" aria-label="Список найденных мероприятий">
+        <li class="event-card" role="listitem" aria-labelledby="evt-1">
+          <time class="event-date" datetime="2026-04-19/2026-04-25">19.04.2026 – 25.04.2026</time>
+          <div class="event-info">
+            <h3 id="evt-1" class="event-title">ПЕРВЕНСТВО ЕВРОПЫ</h3>
+            <p class="event-meta">ТХЭКВОНДО ИТФ • ГРЕЦИЯ</p>
+          </div>
+          <a href="/events/1" class="btn btn--small" aria-label="Подробнее о Первенстве Европы по тхэквондо">Подробнее</a>
+        </li>
+        <li class="event-card" role="listitem" aria-labelledby="evt-2">
+          <time class="event-date" datetime="2026-04-20/2026-04-22">20.04.2026 – 22.04.2026</time>
+          <div class="event-info">
+            <h3 id="evt-2" class="event-title">ВСЕРОССИЙСКИЕ СОРЕВНОВАНИЯ</h3>
+            <p class="event-meta">ВЕЛОСИПЕДНЫЙ СПОРТ • Краснодарский край</p>
+          </div>
+          <a href="/events/2" class="btn btn--small" aria-label="Подробнее о Всероссийских соревнованиях">Подробнее</a>
+        </li>
+        <li class="event-card" role="listitem" aria-labelledby="evt-3">
+          <time class="event-date" datetime="2026-01-03/2026-04-30">03.01.2026 – 30.04.2026</time>
+          <div class="event-info">
+            <h3 id="evt-3" class="event-title">Первенство ПФО до 16 лет</h3>
+            <p class="event-meta">ХОККЕЙ ПО НАЗНАЧЕНИЮ • окончание сезона 2025–2026 гг.</p>
+          </div>
+          <a href="/events/3" class="btn btn--small" aria-label="Подробнее о Первенстве ПФО">Подробнее</a>
+        </li>
+      </ul>
+
+      <nav class="pagination" aria-label="Навигация по страницам результатов">
+        <button class="page-btn" disabled aria-disabled="true" aria-label="Предыдущая страница недоступна">← Назад</button>
+        <button class="page-btn page-btn--active" aria-current="page" aria-label="Текущая страница 1">1</button>
+        <button class="page-btn" aria-label="Перейти на страницу 2">2</button>
+        <button class="page-btn" aria-label="Перейти на страницу 3">3</button>
+        <button class="page-btn" aria-label="Перейти на следующую страницу">Вперёд →</button>
+      </nav>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <p class="footer__copy">© 2026 ФГИС «Спорт»</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
