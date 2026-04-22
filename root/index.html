@@ -3010,6 +3010,11 @@
                 if (show) visibleCount++;
             }
             
+            var countLabel = document.getElementById('events-count');
+            if (countLabel) {
+                countLabel.textContent = 'Найдено мероприятий: ' + visibleCount;
+            }
+
             announce('Найдено мероприятий: ' + visibleCount);
         }
 
@@ -3419,7 +3424,6 @@
                 function closeSportList() {
                     sportListbox.setAttribute('aria-hidden', 'true');
                     sportInput.setAttribute('aria-expanded', 'false');
-                    sportInput.focus()
                     activeOptionIndex = -1;
                 }
 
@@ -3443,7 +3447,7 @@
                             if (items[activeOptionIndex]) {
                                 items[activeOptionIndex].classList.add('active');
                                 items[activeOptionIndex].scrollIntoView({ block: 'nearest' });
-                                items[activeOptionIndex].focus()
+                                items[activeOptionIndex].setAttribute('aria-activedescendant', nextItem.id);
                             }
                         }
                     } else if (e.key === 'ArrowUp') {
