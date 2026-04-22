@@ -3382,6 +3382,7 @@
                 function filterSports(query) {
                     sportListbox.innerHTML = '';
                     activeOptionIndex = -1;
+                    sportInput.removeAttribute('aria-activedescendant');
                     
                     if (!query) {
                         closeSportList();
@@ -3407,7 +3408,8 @@
                         li.className = 'sport-option';
                         li.textContent = sport;
                         li.setAttribute('role', 'option');
-                        li.setAttribute('id', `sport-opt-${index}`);
+                        const optionId = `sport-opt-${index}`;
+                        li.setAttribute('id', optionId);
                         li.setAttribute('aria-selected', 'false');
                         li.addEventListener('click', () => selectSportFromList(sport));
                         sportListbox.appendChild(li);
@@ -3424,6 +3426,7 @@
                 function closeSportList() {
                     sportListbox.setAttribute('aria-hidden', 'true');
                     sportInput.setAttribute('aria-expanded', 'false');
+                    sportInput.removeAttribute('aria-activedescendant');
                     activeOptionIndex = -1;
                 }
 
@@ -3433,32 +3436,47 @@
                     sportInput.focus();
                 }
 
+                function updateActiveOption(items, newIndex) {
+                    if (newIndex < 0 || newIndex >= items.length) return;
+
+                    items.forEach(item => {
+                        item.classList.remove('active');
+                        item.setAttribute('aria-selected', 'false');
+                    });
+
+                    items[newIndex].classList.add('active');
+                    items[newIndex].setAttribute('aria-selected', 'true');
+                    items[newIndex].scrollIntoView({ block: 'nearest' });
+
+                    const optionId = items[newIndex].getAttribute('id');
+                    sportInput.setAttribute('aria-activedescendant', optionId);
+                }
+
                 sportInput.addEventListener('input', (e) => {
                     filterSports(e.target.value);
                 });
 
                 sportInput.addEventListener('keydown', (e) => {
                     const items = sportListbox.querySelectorAll('.sport-option');
+                    if (items.length === 0) return;
                     if (e.key === 'ArrowDown') {
                         e.preventDefault();
                         if (activeOptionIndex < items.length - 1) {
                             activeOptionIndex++;
-                            items.forEach(item => item.classList.remove('active'));
-                            if (items[activeOptionIndex]) {
-                                items[activeOptionIndex].classList.add('active');
-                                items[activeOptionIndex].scrollIntoView({ block: 'nearest' });
-                                items[activeOptionIndex].setAttribute('aria-activedescendant', nextItem.id);
-                            }
+                            updateActiveOption(items, activeOptionIndex);
                         }
                     } else if (e.key === 'ArrowUp') {
                         e.preventDefault();
                         if (activeOptionIndex > 0) {
                             activeOptionIndex--;
-                            items.forEach(item => item.classList.remove('active'));
-                            if (items[activeOptionIndex]) {
-                                items[activeOptionIndex].classList.add('active'); 
-                                items[activeOptionIndex].scrollIntoView({ block: 'nearest' });
-                            }
+                            updateActiveOption(items, activeOptionIndex);
+                        } else if (activeOptionIndex === 0) {
+                            activeOptionIndex = -1;
+                            sportInput.removeAttribute('aria-activedescendant');
+                            items.forEach(item => {
+                                item.classList.remove('active');
+                                item.setAttribute('aria-selected', 'false');
+                            });
                         }
                     } else if (e.key === 'Enter') {
                         e.preventDefault();
