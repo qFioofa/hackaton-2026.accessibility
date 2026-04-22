@@ -7,7 +7,6 @@
     <meta name="description" content="Единая платформа для спортсменов, тренеров, организаций и болельщиков. Календарь мероприятий, реестры, запись в спортшколы.">
     
     <style>
-        /* ===== RESET & VARIABLES ===== */
         :root {
             --color-primary: #3744C4;
             --color-primary-dark: #2a36a3;
@@ -30,6 +29,81 @@
             --transition-fast: 150ms ease;
         }
 
+        [data-theme="dark"] {
+            --color-primary: #4a5aa8;
+            --color-primary-dark: #2d3a7a;
+            --color-accent: #FF8A3D;
+            --color-accent-hover: #FF7614;
+            --color-bg: #0f172a;
+            --color-surface: #1e293b;
+            --color-text-main: #e2e8f0;
+            --color-text-muted: #94a3b8;
+            --color-success: #34d399;
+            --color-error: #f87171;
+            --color-border: #334155;
+            --shadow-card: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-focus: 0 0 0 3px rgba(92, 107, 218, 0.4);
+        }
+
+        [data-theme="contrast"] {
+            --color-primary: #000000;
+            --color-primary-dark: #000000;
+            --color-accent: #FFFF00;
+            --color-accent-hover: #CCCCCC;
+            --color-bg: #000000;
+            --color-surface: #000000;
+            --color-text-main: #FFFFFF;
+            --color-text-muted: #FFFFFF;
+            --color-success: #00FF00;
+            --color-error: #FF0000;
+            --color-border: #FFFFFF;
+            --shadow-card: none;
+            --shadow-focus: 0 0 0 3px #FFFF00;
+        }
+
+        [data-theme="contrast"] .hero {
+            background: #000000;
+            border: 2px solid #FFFFFF;
+        }
+
+        [data-theme="contrast"] .stat-card {
+            background: #000000;
+            border: 2px solid #FFFFFF;
+            color: #FFFFFF;
+        }
+
+        [data-theme="contrast"] .stat-card:hover,
+        [data-theme="contrast"] .stat-card:focus-within {
+            background: #1a1a1a;
+            border-color: #FFFF00;
+        }
+
+        [data-theme="contrast"] .stat-number,
+        [data-theme="contrast"] .stat-label {
+            color: #FFFFFF;
+        }
+
+        [data-theme="contrast"] .theme-toggle-btn {
+            background: #000000;
+            border: 2px solid #FFFFFF;
+            color: #FFFFFF;
+        }
+
+        [data-theme="contrast"] .theme-toggle-btn:hover {
+            border-color: #FFFF00;
+        }
+
+        [data-theme="contrast"] .btn-primary {
+            background: #000000;
+            border: 2px solid #FFFFFF;
+            color: #FFFFFF;
+        }
+
+        [data-theme="contrast"] .btn-primary:hover {
+            border-color: #FFFF00;
+            color: #FFFF00;
+        }
+
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -45,7 +119,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: var(--color-primary) !important; /* Явно задаём цвет на самом элементе */
             will-change: transform;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
@@ -72,7 +145,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ===== ACCESSIBILITY ===== */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -104,7 +176,6 @@
             border: 0 !important;
         }
 
-        /* Focus visible for keyboard users only */
         :focus-visible {
             outline: var(--focus-outline);
             outline-offset: 2px;
@@ -117,7 +188,68 @@
             outline: none;
         }
 
-        /* ===== CONTAINER ===== */
+        [data-theme="dark"] body {
+            background: var(--color-bg);
+            color: var(--color-text-main);
+        }
+
+        [data-theme="dark"] .site-header {
+            background: var(--color-primary);
+        }
+
+        [data-theme="dark"] .search-box input {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        [data-theme="dark"] .btn-login {
+            background: var(--color-surface);
+            color: var(--color-text-main);
+        }
+
+        [data-theme="dark"] .service-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .event-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .filters-panel {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .calendar-wrapper {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .cal-nav-btn {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .quick-link-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .sport-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .tab-btn {
+            color: var(--color-text-muted);
+        }
+
+        [data-theme="dark"] .tab-btn[aria-selected="true"] {
+            color: var(--color-primary);
+        }
+
         .container {
             width: 100%;
             max-width: 1200px;
@@ -125,7 +257,6 @@
             padding: 0 20px;
         }
 
-        /* ===== HEADER ===== */
         .site-header {
             background: var(--color-primary);
             color: #fff;
@@ -133,7 +264,59 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, background-color var(--transition-fast);
+        }
+        
+        [data-theme="dark"] .site-header {
+            background: var(--color-primary-dark);
+        }
+        
+        [data-theme="contrast"] .site-header {
+            background: #000000;
+            border-bottom: 2px solid #FFFFFF;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-btn);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+        }
+        .theme-toggle-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .theme-toggle-btn:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+        
+        [data-theme="dark"] .theme-toggle-btn {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        [data-theme="dark"] .theme-toggle-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        [data-theme="contrast"] .theme-toggle-btn {
+            background: #000000;
+            border: 2px solid #FFFFFF;
+            color: #FFFFFF;
+        }
+        
+        [data-theme="contrast"] .theme-toggle-btn:hover {
+            background: #FFFF00;
+            color: #000000;
+            border-color: #FFFF00;
         }
 
         .header-inner {
@@ -193,12 +376,42 @@
             transition: border-color var(--transition-fast), background var(--transition-fast);
         }
         .search-box input::placeholder {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.7);
         }
         .search-box input:focus {
             border-color: #fff;
             background: rgba(255,255,255,0.2);
             outline: none;
+        }
+        
+        [data-theme="dark"] .search-box input {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .search-box input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        [data-theme="dark"] .search-box input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: #fff;
+        }
+        
+        [data-theme="contrast"] .search-box input {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+        }
+        
+        [data-theme="contrast"] .search-box input::placeholder {
+            color: #AAAAAA;
+        }
+        
+        [data-theme="contrast"] .search-box input:focus {
+            background: #1a1a1a;
+            border-color: #FFFF00;
         }
         .search-box button {
             position: absolute;
@@ -231,13 +444,43 @@
         .btn-login:hover {
             background: #f0f0f0;
         }
+        
+        [data-theme="dark"] .btn-login {
+            background: var(--color-surface);
+            color: #fff;
+            border: 1px solid var(--color-border);
+        }
+        
+        [data-theme="dark"] .btn-login:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        [data-theme="contrast"] .btn-login {
+            background: #000000;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+        }
+        
+        [data-theme="contrast"] .btn-login:hover {
+            background: #FFFF00;
+            color: #000000;
+            border-color: #FFFF00;
+        }
 
-        /* ===== HERO ===== */
         .hero {
             background: linear-gradient(135deg, var(--color-primary) 0%, #5a67d8 100%);
             color: #fff;
             padding: 60px 0;
             text-align: center;
+        }
+        
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, #3d4a8a 100%);
+        }
+        
+        [data-theme="contrast"] .hero {
+            background: #000000;
+            border-bottom: 2px solid #FFFFFF;
         }
 
         .hero h1 {
@@ -254,7 +497,6 @@
             opacity: 0.9;
         }
 
-        /* UIN Check Widget */
         .uin-widget {
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
@@ -271,8 +513,30 @@
         }
         .uin-widget p {
             font-size: 14px;
-            opacity: 0.85;
+            opacity: 0.9;
             margin-bottom: 20px;
+        }
+        
+        [data-theme="dark"] .uin-widget {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        
+        [data-theme="dark"] .uin-widget h2,
+        [data-theme="dark"] .uin-widget p {
+            opacity: 1;
+        }
+        
+        [data-theme="contrast"] .uin-widget {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .uin-widget h2,
+        [data-theme="contrast"] .uin-widget p {
+            color: #FFFFFF;
+            opacity: 1;
         }
         .btn-uin {
             display: inline-flex;
@@ -293,8 +557,26 @@
         .btn-uin:hover {
             background: var(--color-accent-hover);
         }
+        
+        [data-theme="dark"] .btn-uin {
+            background: var(--color-accent);
+        }
+        
+        [data-theme="dark"] .btn-uin:hover {
+            background: #ff9c5c;
+        }
+        
+        [data-theme="contrast"] .btn-uin {
+            background: #000000;
+            color: #FFFF00;
+            border: 2px solid #FFFF00;
+        }
+        
+        [data-theme="contrast"] .btn-uin:hover {
+            background: #FFFF00;
+            color: #000000;
+        }
 
-        /* ===== QUICK LINKS GRID ===== */
         .quick-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -321,6 +603,26 @@
             background: rgba(255,255,255,0.22);
             transform: translateY(-2px);
         }
+        
+        [data-theme="dark"] .quick-link-card {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        
+        [data-theme="dark"] .quick-link-card:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        [data-theme="contrast"] .quick-link-card {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .quick-link-card:hover {
+            background: #1a1a1a;
+            border-color: #FFFF00;
+        }
 
         .quick-link-icon {
             width: 48px;
@@ -332,6 +634,15 @@
             border-radius: 50%;
             font-size: 24px;
         }
+        
+        [data-theme="dark"] .quick-link-icon {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        [data-theme="contrast"] .quick-link-icon {
+            background: #000000;
+            border: 2px solid #FFFFFF;
+        }
 
         .quick-link-text {
             font-size: 14px;
@@ -339,7 +650,6 @@
             line-height: 1.4;
         }
 
-        /* ===== STATS ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -352,6 +662,39 @@
             padding: 20px;
             border-radius: var(--radius-md);
             text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: #fff;
+        }
+        .stat-card:hover, .stat-card:focus-within {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        .stat-card:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+        
+        [data-theme="dark"] .stat-card {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        
+        [data-theme="dark"] .stat-card:hover,
+        [data-theme="dark"] .stat-card:focus-within {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        [data-theme="contrast"] .stat-card {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .stat-card:hover,
+        [data-theme="contrast"] .stat-card:focus-within {
+            background: #1a1a1a;
+            border-color: #FFFF00;
         }
 
         .stat-number {
@@ -359,14 +702,17 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 4px;
+            pointer-events: none;
+            color: #fff;
         }
 
         .stat-label {
             font-size: 13px;
-            opacity: 0.8;
+            opacity: 0.9;
+            pointer-events: none;
+            color: #fff;
         }
 
-        /* ===== SECTION ===== */
         .section {
             padding: 60px 0;
         }
@@ -378,7 +724,6 @@
             color: var(--color-text-main);
         }
 
-        /* ===== TABS ===== */
         .tabs-nav {
             display: flex;
             border-bottom: 2px solid var(--color-border);
@@ -406,6 +751,33 @@
             color: var(--color-primary);
             border-bottom-color: var(--color-primary);
         }
+        
+        [data-theme="dark"] .tab-btn {
+            color: var(--color-text-muted);
+        }
+        
+        [data-theme="dark"] .tab-btn:hover {
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .tab-btn[aria-selected="true"] {
+            color: #fff;
+            border-bottom-color: var(--color-primary);
+        }
+        
+        [data-theme="contrast"] .tab-btn {
+            color: #FFFFFF;
+            border-bottom-color: #333;
+        }
+        
+        [data-theme="contrast"] .tab-btn:hover {
+            color: #FFFF00;
+        }
+        
+        [data-theme="contrast"] .tab-btn[aria-selected="true"] {
+            color: #FFFF00;
+            border-bottom-color: #FFFF00;
+        }
 
         .tab-panel {
             display: none;
@@ -414,7 +786,6 @@
             display: block;
         }
 
-        /* ===== CARDS GRID ===== */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -435,6 +806,25 @@
         .service-card:hover {
             box-shadow: 0 8px 16px rgba(0,0,0,0.08);
         }
+        
+        [data-theme="dark"] .service-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+        
+        [data-theme="dark"] .service-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+        
+        [data-theme="contrast"] .service-card {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .service-card:hover {
+            box-shadow: 0 0 0 2px #FFFF00;
+        }
 
         .service-card-icon {
             width: 56px;
@@ -446,6 +836,15 @@
             border-radius: 50%;
             font-size: 28px;
             flex-shrink: 0;
+        }
+        
+        [data-theme="dark"] .service-card-icon {
+            background: rgba(92, 107, 218, 0.2);
+        }
+        
+        [data-theme="contrast"] .service-card-icon {
+            background: #000000;
+            border: 2px solid #FFFFFF;
         }
 
         .service-card h3 {
@@ -465,7 +864,6 @@
             padding-top: 16px;
         }
 
-        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -488,6 +886,25 @@
         .btn-primary:hover {
             background: var(--color-primary-dark);
         }
+        
+        [data-theme="dark"] .btn-primary {
+            background: var(--color-primary);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            background: #5a6bc4;
+        }
+        
+        [data-theme="contrast"] .btn-primary {
+            background: #000000;
+            color: #FFFF00;
+            border: 2px solid #FFFF00;
+        }
+        
+        [data-theme="contrast"] .btn-primary:hover {
+            background: #FFFF00;
+            color: #000000;
+        }
 
         .btn-outline {
             background: transparent;
@@ -496,6 +913,28 @@
         }
         .btn-outline:hover {
             background: rgba(55, 68, 196, 0.06);
+        }
+        
+        [data-theme="dark"] .btn-outline {
+            border-color: #fff;
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="contrast"] .btn-outline {
+            background: transparent;
+            border-color: #FFFFFF;
+            color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .btn-outline:hover {
+            background: #FFFF00;
+            color: #000000;
+            border-color: #FFFF00;
         }
 
         .btn-sm {
@@ -526,7 +965,6 @@
             transform: translateX(4px);
         }
 
-        /* ===== EKP PAGE ===== */
         .page {
             display: none;
         }
@@ -554,6 +992,23 @@
         .back-btn:hover {
             background: rgba(55, 68, 196, 0.06);
         }
+        
+        [data-theme="dark"] .back-btn {
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="contrast"] .back-btn {
+            color: #FFFFFF;
+        }
+        
+        [data-theme="contrast"] .back-btn:hover {
+            background: #FFFF00;
+            color: #000000;
+        }
 
         .page-title {
             font-size: clamp(22px, 3.5vw, 32px);
@@ -562,7 +1017,6 @@
             line-height: 1.3;
         }
 
-        /* ===== FILTERS ===== */
         .filters-toggle-btn {
             display: inline-flex;
             align-items: center;
@@ -585,6 +1039,27 @@
         .filters-toggle-btn[aria-expanded="true"] .chevron {
             transform: rotate(180deg);
         }
+        
+        [data-theme="dark"] .filters-toggle-btn {
+            border-color: #fff;
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .filters-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="contrast"] .filters-toggle-btn {
+            background: #000000;
+            border-color: #FFFFFF;
+            color: #FFFFFF;
+        }
+        
+        [data-theme="contrast"] .filters-toggle-btn:hover {
+            background: #1a1a1a;
+            border-color: #FFFF00;
+            color: #FFFF00;
+        }
         .chevron {
             transition: transform var(--transition-fast);
         }
@@ -599,6 +1074,17 @@
         }
         .filters-panel.open {
             display: block;
+        }
+        
+        [data-theme="dark"] .filters-panel {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+        
+        [data-theme="contrast"] .filters-panel {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
         }
 
         .filters-grid {
@@ -622,7 +1108,8 @@
             border: 1px solid var(--color-border);
             border-radius: var(--radius-sm);
             font-size: 15px;
-            background: #fff;
+            background: var(--color-surface);
+            color: var(--color-text-main);
             transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
             min-height: 44px;
         }
@@ -631,6 +1118,21 @@
             box-shadow: var(--shadow-focus);
             outline: none;
         }
+        
+        [data-theme="dark"] .form-select,
+        [data-theme="dark"] .form-input,
+        [data-theme="dark"] .form-date {
+            background: var(--color-surface);
+            color: var(--color-text-main);
+        }
+        
+        [data-theme="contrast"] .form-select,
+        [data-theme="contrast"] .form-input,
+        [data-theme="contrast"] .form-date {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+        }
 
         .filters-actions {
             display: flex;
@@ -638,13 +1140,23 @@
             flex-wrap: wrap;
         }
 
-        /* ===== CALENDAR ===== */
         .calendar-wrapper {
             background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
             padding: 24px;
             margin-bottom: 32px;
+        }
+        
+        [data-theme="dark"] .calendar-wrapper {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+        
+        [data-theme="contrast"] .calendar-wrapper {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
         }
 
         .calendar-header {
@@ -670,7 +1182,7 @@
             justify-content: center;
             border: 1px solid var(--color-border);
             border-radius: 50%;
-            background: #fff;
+            background: var(--color-surface);
             cursor: pointer;
             font-size: 18px;
             color: var(--color-primary);
@@ -679,6 +1191,27 @@
         .cal-nav-btn:hover {
             background: rgba(55, 68, 196, 0.06);
             border-color: var(--color-primary);
+        }
+        
+        [data-theme="dark"] .cal-nav-btn {
+            background: var(--color-surface);
+            color: var(--color-primary);
+        }
+        
+        [data-theme="dark"] .cal-nav-btn:hover {
+            background: rgba(92, 107, 218, 0.2);
+        }
+        
+        [data-theme="contrast"] .cal-nav-btn {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+        }
+        
+        [data-theme="contrast"] .cal-nav-btn:hover {
+            background: #FFFF00;
+            color: #000000;
+            border-color: #FFFF00;
         }
 
         .calendar-grid {
@@ -693,6 +1226,15 @@
             font-weight: 600;
             color: var(--color-text-muted);
             padding: 8px 0;
+        }
+        
+        [data-theme="dark"] .cal-day-header {
+            color: #fff;
+            opacity: 0.9;
+        }
+        
+        [data-theme="contrast"] .cal-day-header {
+            color: #FFFFFF;
         }
 
         .cal-day {
@@ -709,6 +1251,7 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto;
+            color: var(--color-text-main);
         }
         .cal-day:hover {
             background: rgba(55, 68, 196, 0.08);
@@ -718,7 +1261,8 @@
             background: rgba(55, 68, 196, 0.1);
         }
         .cal-day.other-month {
-            color: #ccc;
+            color: var(--color-text-muted);
+            opacity: 0.5;
         }
         .cal-day.today {
             font-weight: 700;
@@ -737,8 +1281,61 @@
             background: var(--color-primary);
             color: #fff;
         }
+        
+        [data-theme="dark"] .cal-day {
+            color: var(--color-text-main);
+        }
+        
+        [data-theme="dark"] .cal-day:hover {
+            background: rgba(92, 107, 218, 0.2);
+        }
+        
+        [data-theme="dark"] .cal-day.today {
+            background: rgba(92, 107, 218, 0.25);
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .cal-day.has-event {
+            background: rgba(255, 138, 61, 0.25);
+            color: #fff;
+        }
+        
+        [data-theme="dark"] .cal-day.has-event:hover {
+            background: rgba(255, 138, 61, 0.35);
+        }
+        
+        [data-theme="dark"] .cal-day.selected {
+            background: var(--color-primary);
+            color: #fff;
+        }
+        
+        [data-theme="contrast"] .cal-day {
+            color: #FFFFFF;
+            border-color: transparent;
+        }
+        
+        [data-theme="contrast"] .cal-day:hover {
+            background: #FFFF00;
+            color: #000000;
+        }
+        
+        [data-theme="contrast"] .cal-day.today {
+            background: #FFFFFF;
+            color: #000000;
+            border-color: #FFFF00;
+        }
+        
+        [data-theme="contrast"] .cal-day.has-event {
+            background: #FFFF00;
+            color: #000000;
+        }
+        
+        [data-theme="contrast"] .cal-day.selected {
+            background: #000000;
+            color: #FFFF00;
+            border-color: #FFFF00;
+        }
 
-        /* ===== EVENT CARDS ===== */
         .events-list {
             display: flex;
             flex-direction: column;
@@ -766,6 +1363,33 @@
         .event-card.fizkultura {
             border-left-color: #0061D9;
         }
+        
+        [data-theme="dark"] .event-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+        
+        [data-theme="dark"] .event-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        
+        [data-theme="dark"] .event-card.fizkultura {
+            border-left-color: #5a8aff;
+        }
+        
+        [data-theme="contrast"] .event-card {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-left-width: 6px;
+        }
+        
+        [data-theme="contrast"] .event-card.fizkultura {
+            border-left-color: #00FFFF;
+        }
+        
+        [data-theme="contrast"] .event-card:hover {
+            box-shadow: 0 0 0 2px #FFFF00;
+        }
 
         .event-top {
             display: flex;
@@ -781,15 +1405,54 @@
             padding: 4px 12px;
             border-radius: 4px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
         }
         .event-badge.sport {
-            background: rgba(255, 118, 20, 0.12);
-            color: var(--color-accent);
+            background: rgba(255, 118, 20, 0.15);
+            color: #c25a0f;
+            border: 1px solid rgba(255, 118, 20, 0.3);
         }
         .event-badge.fizkultura {
-            background: rgba(0, 97, 217, 0.1);
-            color: #0061D9;
+            background: rgba(0, 97, 217, 0.12);
+            color: #004a99;
+            border: 1px solid rgba(0, 97, 217, 0.3);
+        }
+        
+        [data-theme="dark"] .event-badge.sport {
+            background: rgba(255, 138, 61, 0.2);
+            color: #ff9a5c;
+            border-color: rgba(255, 138, 61, 0.5);
+        }
+        
+        [data-theme="dark"] .event-badge.fizkultura {
+            background: rgba(92, 138, 255, 0.2);
+            color: #8ab4ff;
+            border-color: rgba(92, 138, 255, 0.5);
+        }
+        
+        [data-theme="contrast"] .event-badge.sport,
+        [data-theme="contrast"] .event-badge.fizkultura {
+            background: #000000;
+            color: #FFFF00;
+            border-color: #FFFF00;
+            border-width: 2px;
+        }
+        
+        .event-badge.sport::after {
+            content: "⚫";
+            margin-left: 6px;
+            font-size: 10px;
+        }
+        
+        .event-badge.fizkultura::after {
+            content: "◼";
+            margin-left: 6px;
+            font-size: 10px;
+        }
+        
+        [data-theme="contrast"] .event-badge.sport::after,
+        [data-theme="contrast"] .event-badge.fizkultura::after {
+            content: "";
         }
 
         .event-ekp {
@@ -836,8 +1499,16 @@
             font-size: 12px;
             flex-shrink: 0;
         }
+        
+        [data-theme="dark"] .event-meta-item .icon {
+            background: rgba(92, 107, 218, 0.2);
+        }
+        
+        [data-theme="contrast"] .event-meta-item .icon {
+            background: #000000;
+            border: 1px solid #FFFFFF;
+        }
 
-        /* ===== POPULAR SPORTS ===== */
         .sports-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -854,6 +1525,25 @@
         }
         .sport-card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        [data-theme="dark"] .sport-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+        
+        [data-theme="dark"] .sport-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        
+        [data-theme="contrast"] .sport-card {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .sport-card:hover {
+            box-shadow: 0 0 0 2px #FFFF00;
         }
 
         .sport-card-header {
@@ -880,6 +1570,17 @@
             font-size: 14px;
             color: var(--color-primary);
         }
+        
+        [data-theme="dark"] .sport-rank {
+            background: rgba(92, 107, 218, 0.2);
+            color: #fff;
+        }
+        
+        [data-theme="contrast"] .sport-rank {
+            background: #000000;
+            color: #FFFF00;
+            border: 2px solid #FFFF00;
+        }
 
         .sport-stat {
             display: flex;
@@ -898,8 +1599,15 @@
             font-weight: 700;
             color: var(--color-primary);
         }
+        
+        [data-theme="dark"] .sport-stat-value {
+            color: #fff;
+        }
+        
+        [data-theme="contrast"] .sport-stat-value {
+            color: #FFFF00;
+        }
 
-        /* ===== RESOURCES ===== */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -921,6 +1629,25 @@
         .resource-card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
+        
+        [data-theme="dark"] .resource-card {
+            background: var(--color-surface);
+            border-color: var(--color-border);
+        }
+        
+        [data-theme="dark"] .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        
+        [data-theme="contrast"] .resource-card {
+            background: #000000;
+            border-color: #FFFFFF;
+            border-width: 2px;
+        }
+        
+        [data-theme="contrast"] .resource-card:hover {
+            box-shadow: 0 0 0 2px #FFFF00;
+        }
 
         .resource-logo {
             height: 40px;
@@ -937,30 +1664,42 @@
             line-height: 1.5;
         }
 
-        /* Стили поля ввода */
         .sport-input {
             width: 100%;
             padding: 10px;
-            border: 2px solid #ccc;
+            border: 2px solid var(--color-border);
             border-radius: 4px;
             font-size: 16px;
             box-sizing: border-box;
+            background: var(--color-surface);
+            color: var(--color-text-main);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
         }
 
         .sport-input:focus {
-            border-color: #0056b3;
+            border-color: var(--color-primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+            box-shadow: var(--shadow-focus);
+        }
+        
+        [data-theme="dark"] .sport-input {
+            background: var(--color-surface);
+            color: var(--color-text-main);
+        }
+        
+        [data-theme="contrast"] .sport-input {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
         }
 
-        /* Стили выпадающего списка */
         .sport-listbox {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            background: white;
-            border: 1px solid #ddd;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
             border-top: none;
             border-radius: 0 0 4px 4px;
             max-height: 250px;
@@ -969,37 +1708,53 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            display: none; /* Скрыт по умолчанию */
+            display: none;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        [data-theme="dark"] .sport-listbox {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
         }
 
         .sport-listbox[aria-hidden="false"] {
             display: block;
         }
 
-        /* Элементы списка */
         .sport-option {
             padding: 10px 15px;
             cursor: pointer;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-main);
         }
 
         .sport-option:last-child {
             border-bottom: none;
         }
 
-        /* Стиль для выбранного/активного элемента (важно для визуалов и контекста) */
         .sport-option:hover,
         .sport-option[aria-selected="true"],
         .sport-option.active {
-            background-color: #eef6ff;
-            color: #053569;
+            background-color: rgba(55, 68, 196, 0.1);
+            color: var(--color-primary);
         }
         
-        /* Сообщение, если ничего не найдено */
+        [data-theme="dark"] .sport-option:hover,
+        [data-theme="dark"] .sport-option[aria-selected="true"],
+        [data-theme="dark"] .sport-option.active {
+            background-color: rgba(92, 107, 218, 0.2);
+            color: #fff;
+        }
+        
+        [data-theme="contrast"] .sport-option:hover,
+        [data-theme="contrast"] .sport-option[aria-selected="true"],
+        [data-theme="contrast"] .sport-option.active {
+            background-color: #FFFF00;
+            color: #000000;
+        }
+        
         .no-results {
             padding: 10px 15px;
-            color: #666;
+            color: var(--color-text-muted);
             font-style: italic;
         }
         .filters-actions {
@@ -1010,17 +1765,27 @@
             margin-bottom: 30px;
         }
 
-        /* ===== FOOTER ===== */
         .site-footer {
-            background: var(--color-text-main);
-            color: rgba(255,255,255,0.7);
+            background: var(--color-primary-dark);
+            color: rgba(255,255,255,0.9);
             padding: 32px 0;
             text-align: center;
             font-size: 14px;
             margin-top: 40px;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        [data-theme="dark"] .site-footer {
+            background: #0a1220;
+            color: rgba(255,255,255,0.85);
+        }
+        
+        [data-theme="contrast"] .site-footer {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
         }
 
-        /* ===== LIVE REGION ===== */
         #aria-live-region {
             position: absolute;
             width: 1px;
@@ -1030,7 +1795,6 @@
         }
 
 
-        /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1054,7 +1818,7 @@
         }
 
         .modal {
-            background: white;
+            background: var(--color-surface);
             border-radius: var(--radius-md);
             padding: 32px;
             max-width: 600px;
@@ -1064,6 +1828,7 @@
             position: relative;
             transform: scale(0.9);
             transition: transform 0.3s ease;
+            border: 1px solid var(--color-border);
         }
 
         .modal-overlay.active .modal {
@@ -1089,6 +1854,10 @@
         .modal-close:hover {
             background: rgba(0, 0, 0, 0.05);
         }
+        
+        [data-theme="dark"] .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
 
         .modal-icon {
             width: 64px;
@@ -1101,12 +1870,17 @@
             border-radius: 50%;
             font-size: 32px;
         }
+        
+        [data-theme="dark"] .modal-icon {
+            background: rgba(92, 107, 218, 0.15);
+        }
 
         .modal-title {
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 16px;
             text-align: center;
+            color: var(--color-text-main);
         }
 
         .modal-info {
@@ -1117,6 +1891,10 @@
             background: rgba(55, 68, 196, 0.05);
             border-radius: var(--radius-sm);
             margin-bottom: 24px;
+        }
+        
+        [data-theme="dark"] .modal-info {
+            background: rgba(92, 107, 218, 0.15);
         }
 
         .modal-info-icon {
@@ -1149,7 +1927,6 @@
             margin-bottom: 24px;
         }
 
-        /* ===== AUTOCOMPLETE ===== */
         .autocomplete-wrapper {
             position: relative;
         }
@@ -1159,7 +1936,7 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: white;
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-sm);
             max-height: 200px;
@@ -1167,6 +1944,10 @@
             z-index: 10;
             display: none;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] .autocomplete-dropdown {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
         }
 
         .autocomplete-dropdown.active {
@@ -1177,14 +1958,25 @@
             padding: 10px 14px;
             cursor: pointer;
             transition: background var(--transition-fast);
+            color: var(--color-text-main);
         }
 
         .autocomplete-item:hover,
         .autocomplete-item.active {
-            background: rgba(55, 68, 196, 0.08);
+            background: rgba(55, 68, 196, 0.1);
+        }
+        
+        [data-theme="dark"] .autocomplete-item:hover,
+        [data-theme="dark"] .autocomplete-item.active {
+            background: rgba(92, 107, 218, 0.2);
+        }
+        
+        [data-theme="contrast"] .autocomplete-item:hover,
+        [data-theme="contrast"] .autocomplete-item.active {
+            background: #FFFF00;
+            color: #000000;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -1239,13 +2031,10 @@
 </head>
 <body>
 
-    <!-- Skip Link for Keyboard Navigation -->
     <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
 
-    <!-- ARIA Live Region for Announcements -->
     <div id="aria-live-region" aria-live="polite" aria-atomic="true" role="status"></div>
 
-    <!-- ===== HEADER ===== -->
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <div class="logo-group">
@@ -1267,6 +2056,17 @@
                 </a>
             </div>
             <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Переключить тему оформления. Текущая тема: светлая" title="Переключить тему">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="contrast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none;">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 0 0-8 8c0 2.21.895 4.21 2.344 5.656A7.97 7.97 0 0 1 12 4a7.97 7.97 0 0 1 5.656 2.344A8 8 0 0 0 12 4z"/>
+                    </svg>
+                </button>
                 <div class="search-box">
                     <label for="site-search" class="visually-hidden">Поиск по сайту</label>
                     <input type="search" id="site-search" placeholder="Поиск по сайту..." aria-label="Поиск по сайту" autocomplete="off">
@@ -1281,19 +2081,15 @@
         </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main id="main-content" role="main">
 
-        <!-- ===== HOME PAGE ===== -->
         <div id="page-home" class="page active">
 
-            <!-- Hero Section -->
             <section class="hero" aria-labelledby="hero-title">
                 <div class="container">
                     <h1 id="hero-title">Цифровые сервисы в сфере физической культуры и спорта</h1>
                     <p class="hero-subtitle">Единая платформа для спортсменов, тренеров, организаций и болельщиков. Прозрачные данные, удобные инструменты, актуальная информация.</p>
 
-                    <!-- UIN Check Widget -->
                     <div class="uin-widget">
                         <h2>Проверка УИН ВФСК «ГТО»</h2>
                         <p>Проверьте УИН участника перед выполнением испытаний ВФСК «ГТО»</p>
@@ -1305,7 +2101,6 @@
                         </a>
                     </div>
 
-                    <!-- Quick Links -->
                     <nav class="quick-links" role="list" aria-label="Быстрые ссылки на разделы">
                         <a href="#" class="quick-link-card" role="listitem" onclick="showPage('ekp'); return false;" aria-label="Открыть раздел: Единый календарный план мероприятий">
                             <div class="quick-link-icon" aria-hidden="true">📅</div>
@@ -1333,34 +2128,31 @@
                         </a>
                     </nav>
 
-                    <!-- Stats -->
-                    <div class="stats-grid" aria-label="Статистика платформы в цифрах">
-                        <div class="stat-card">
-                            <span class="stat-number" data-count="4512" aria-live="polite">0</span>
+                    <div class="stats-grid" role="group" aria-label="Статистика платформы в цифрах">
+                        <button class="stat-card" type="button" onclick="window.open('https://sportrf.gov.ru/sports-federations', '_blank', 'noopener')" aria-label="Спортивных федераций: 4512. Перейти к списку федераций">
+                            <span class="stat-number" data-count="4512" aria-live="polite" aria-hidden="true">0</span>
                             <span class="stat-label">Спортивных федераций</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number" data-count="7227" aria-live="polite">0</span>
+                        </button>
+                        <button class="stat-card" type="button" onclick="window.open('https://sportrf.gov.ru/cartographic', '_blank', 'noopener')" aria-label="Объектов спорта: 7227. Перейти к карте объектов">
+                            <span class="stat-number" data-count="7227" aria-live="polite" aria-hidden="true">0</span>
                             <span class="stat-label">Объектов спорта</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number" data-count="5386" aria-live="polite">0</span>
+                        </button>
+                        <button class="stat-card" type="button" onclick="window.open('https://sportrf.gov.ru/organizations', '_blank', 'noopener')" aria-label="Организаций спортивной подготовки: 5386. Перейти к списку организаций">
+                            <span class="stat-number" data-count="5386" aria-live="polite" aria-hidden="true">0</span>
                             <span class="stat-label">Организаций</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number" data-count="2869317" aria-live="polite">0</span>
+                        </button>
+                        <button class="stat-card" type="button" onclick="window.open('https://sportrf.gov.ru/athletes', '_blank', 'noopener')" aria-label="Спортсменов: 2869317. Перейти к реестру спортсменов">
+                            <span class="stat-number" data-count="2869317" aria-live="polite" aria-hidden="true">0</span>
                             <span class="stat-label">Спортсменов</span>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </section>
 
-            <!-- Services Section -->
             <section class="section" aria-labelledby="services-title">
                 <div class="container">
                     <h2 id="services-title" class="section-title">Сервисы</h2>
 
-                    <!-- Tabs -->
                     <div class="tabs-nav" role="tablist" aria-label="Категории пользователей">
                         <button role="tab" aria-selected="true" aria-controls="panel-citizens" id="tab-citizens" class="tab-btn" onclick="switchTab('citizens')">
                             Гражданам
@@ -1370,7 +2162,6 @@
                         </button>
                     </div>
 
-                    <!-- Citizens Panel -->
                     <div id="panel-citizens" role="tabpanel" aria-labelledby="tab-citizens" class="tab-panel active">
                         <div class="cards-grid">
 
@@ -1485,7 +2276,6 @@
                         </div>
                     </div>
 
-                    <!-- Organizations Panel -->
                     <div id="panel-orgs" role="tabpanel" aria-labelledby="tab-orgs" class="tab-panel">
                         <div class="cards-grid">
 
@@ -1542,7 +2332,6 @@
                 </div>
             </section>
 
-            <!-- Popular Sports Section -->
             <section class="section" style="background: var(--color-surface);" aria-labelledby="sports-title">
                 <div class="container">
                     <h2 id="sports-title" class="section-title">Популярные виды спорта</h2>
@@ -1667,7 +2456,6 @@
                 </div>
             </section>
 
-            <!-- Resources Section -->
             <section class="section" aria-labelledby="resources-title">
                 <div class="container">
                     <h2 id="resources-title" class="section-title">Полезные ресурсы</h2>
@@ -1708,7 +2496,6 @@
 
         </div>
 
-        <!-- ===== EKP PAGE ===== -->
         <div id="page-ekp" class="page">
             <div class="container">
                 <div class="page-header">
@@ -1721,7 +2508,6 @@
                     <h1 class="page-title">Единый календарный план физкультурных и спортивных мероприятий</h1>
                 </div>
 
-                <!-- Filters Toggle Button -->
                 <button class="filters-toggle-btn" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel" onclick="toggleFilters()">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>
@@ -1732,7 +2518,6 @@
                     </svg>
                 </button>
 
-                <!-- Filters Panel -->
                 <div id="filters-panel" class="filters-panel" role="search" aria-label="Фильтры поиска мероприятий">
                     <form id="ekp-form" onsubmit="applyFilters(event)">
                         <div class="filters-grid">
@@ -1764,7 +2549,6 @@
                                         aria-label="Список видов спорта"
                                         aria-hidden="true"
                                     >
-                                        <!-- Опции будут генерироваться JS -->
                                     </ul>
                             </div>
                             <div class="form-group" style="flex: 1; min-width: 200px; position: relative;">
@@ -1787,7 +2571,6 @@
                                     aria-label="Список мест проведения"
                                     aria-hidden="true"
                                 >
-                                    <!-- Опции будут генерироваться JS -->
                                 </ul>
                             </div>
                             <div class="form-group">
@@ -1806,7 +2589,6 @@
                     </form>
                 </div>
 
-                <!-- Calendar -->
                 <div class="calendar-wrapper" role="application" aria-label="Календарь мероприятий на апрель 2026 года">
                     <div class="calendar-header">
                         <button class="cal-nav-btn" aria-label="Предыдущий месяц" onclick="changeMonth(-1)">‹</button>
@@ -1814,7 +2596,6 @@
                         <button class="cal-nav-btn" aria-label="Следующий месяц" onclick="changeMonth(1)">›</button>
                     </div>
                     <div class="calendar-grid" id="calendar-grid" role="grid" aria-label="Календарная сетка">
-                        <!-- Day headers -->
                         <div class="cal-day-header" role="columnheader">Пн</div>
                         <div class="cal-day-header" role="columnheader">Вт</div>
                         <div class="cal-day-header" role="columnheader">Ср</div>
@@ -1822,14 +2603,11 @@
                         <div class="cal-day-header" role="columnheader">Пт</div>
                         <div class="cal-day-header" role="columnheader">Сб</div>
                         <div class="cal-day-header" role="columnheader">Вс</div>
-                        <!-- Days will be generated by JS -->
                     </div>
                 </div>
 
-                <!-- Events List -->
                 <div class="events-found-label" id="events-count" aria-live="polite">Найдено мероприятий: 5</div>
                 <div class="events-list" id="events-list" role="list" aria-label="Список мероприятий">
-                    <!-- Event 1 -->
                     <article class="event-card" role="listitem" data-sport="Тхэквондо ИТФ" data-date-start="2026-04-19" data-date-end="2026-04-25" data-region="Греция">
                         <div class="event-top">
                             <span class="event-badge sport" aria-label="Тип мероприятия: спортивное">Спортивные</span>
@@ -1861,7 +2639,6 @@
                         </a>
                     </article>
 
-                    <!-- Event 2 -->
                     <article class="event-card" role="listitem" data-sport="Спорт глухих" data-date-start="2026-04-24" data-date-end="2026-05-05" data-region="Республика Крым">
                         <div class="event-top">
                             <span class="event-badge sport" aria-label="Тип мероприятия: спортивное">Спортивные</span>
@@ -1893,7 +2670,6 @@
                         </a>
                     </article>
 
-                    <!-- Event 3 -->
                     <article class="event-card fizkultura" role="listitem" data-sport="Баскетбол" data-date-start="2026-04-15" data-date-end="2026-04-20" data-region="Воронежская область">
                         <div class="event-top">
                             <span class="event-badge fizkultura" aria-label="Тип мероприятия: физкультурное">Физкультурные</span>
@@ -1925,7 +2701,6 @@
                         </a>
                     </article>
 
-                    <!-- Event 4 -->
                     <article class="event-card" role="listitem" data-sport="Восточное боевое единоборство" data-date-start="2026-04-24" data-date-end="2026-04-27" data-region="Ростовская область">
                         <div class="event-top">
                             <span class="event-badge sport" aria-label="Тип мероприятия: спортивное">Спортивные</span>
@@ -1957,7 +2732,6 @@
                         </a>
                     </article>
 
-                    <!-- Event 5 -->
                     <article class="event-card" role="listitem" data-sport="Радиоспорт" data-date-start="2026-04-25" data-date-end="2026-04-25" data-region="Липецкая область">
                         <div class="event-top">
                             <span class="event-badge sport" aria-label="Тип мероприятия: спортивное">Спортивные</span>
@@ -1991,7 +2765,6 @@
 
                 </div>
 
-                <!-- Load More -->
                 <div style="text-align: center; margin-top: 32px;">
                     <button class="btn btn-outline" aria-label="Загрузить ещё мероприятия" onclick="announce('Функция загрузки дополнительных мероприятий в разработке')">
                         Показать ещё
@@ -2003,14 +2776,12 @@
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="site-footer" role="contentinfo">
         <div class="container">
             <p>© 2026 ФГИС «Спорт». Динамика развития спорта в РФ</p>
         </div>
     </footer>
 
-    <!-- ===== MODAL ===== -->
     <div id="sport-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title"
         onclick="closeModalOnOverlay(event)">
         <div class="modal" onclick="event.stopPropagation()">
@@ -2035,9 +2806,7 @@
         </div>
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== FOCUS TRACKING =====
         (function() {
             let isMouse = false;
             document.addEventListener('mousedown', function() { isMouse = true; });
@@ -2054,7 +2823,6 @@
             });
         })();
 
-        // ===== ARIA LIVE ANNOUNCEMENTS =====
         function announce(message) {
             var region = document.getElementById('aria-live-region');
             region.textContent = '';
@@ -2063,21 +2831,17 @@
             }, 100);
         }
 
-        // ===== PAGE NAVIGATION =====
         function showPage(pageId) {
-            // Hide all pages
             var pages = document.querySelectorAll('.page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].classList.remove('active');
             }
             
-            // Show target page
             var target = document.getElementById('page-' + pageId);
             if (target) {
                 target.classList.add('active');
             }
             
-            // Update page title
             if (pageId === 'home') {
                 document.title = 'ФГИС «Спорт» — Цифровые сервисы в сфере физической культуры и спорта';
                 announce('Главная страница ФГИС Спорт');
@@ -2086,17 +2850,14 @@
                 announce('Страница Единого календарного плана');
             }
             
-            // Focus main content
             var main = document.getElementById('main-content');
             if (main) {
                 main.focus();
             }
             
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // ===== TABS =====
         function switchTab(tabName) {
             var citizensTab = document.getElementById('tab-citizens');
             var orgsTab = document.getElementById('tab-orgs');
@@ -2118,7 +2879,6 @@
             }
         }
 
-        // Tab keyboard navigation
         document.addEventListener('DOMContentLoaded', function() {
             var tablist = document.querySelector('[role="tablist"]');
             if (tablist) {
@@ -2149,7 +2909,6 @@
             }
         });
 
-        // ===== HEADER SCROLL =====
         let lastScroll = 0;
         const header = document.querySelector('.site-header');
         window.addEventListener('scroll', () => {
@@ -2159,16 +2918,13 @@
                 return;
             }
             if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
-                // Scroll down - hide header
                 header.classList.add('header-hidden');
             } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
-                // Scroll up - show header
                 header.classList.remove('header-hidden');
             }
             lastScroll = currentScroll;
         });
 
-        // ===== FILTERS TOGGLE =====
         function toggleFilters() {
             var panel = document.getElementById('filters-panel');
             var btn = document.getElementById('filters-toggle');
@@ -2184,13 +2940,11 @@
                 btn.setAttribute('aria-expanded', 'true');
                 btnText.textContent = 'Скрыть фильтры';
                 announce('Фильтры открыты. Поля: вид мероприятия, вид спорта, регион, дата');
-                // Focus first input
                 var firstInput = panel.querySelector('select, input');
                 if (firstInput) firstInput.focus();
             }
         }
 
-        // ===== APPLY FILTERS =====
         function applyFilters(e) {
             e.preventDefault();
             
@@ -2200,7 +2954,6 @@
             var dateFrom = document.getElementById('filter-date-from').value;
             var dateTo = document.getElementById('filter-date-to').value;
             
-            // Build announcement
             var filters = [];
             if (type !== 'all') {
                 filters.push(type === 'sport' ? 'спортивные' : 'физкультурные');
@@ -2219,7 +2972,6 @@
             
             announce(message);
             
-            // Filter events
             var cards = document.querySelectorAll('.event-card');
             var visibleCount = 0;
             
@@ -2229,7 +2981,6 @@
                 var isSport = badge && badge.classList.contains('sport');
                 var isFizkultura = badge && badge.classList.contains('fizkultura');
                 
-                // Получаем данные из data-атрибутов
                 var cardSport = card.getAttribute('data-sport') || '';
                 var cardDateStart = card.getAttribute('data-date-start') || '';
                 var cardDateEnd = card.getAttribute('data-date-end') || '';
@@ -2237,21 +2988,17 @@
                 
                 var show = true;
                 
-                // Фильтр по типу мероприятия
                 if (type === 'sport' && !isSport) show = false;
                 if (type === 'fizkultura' && !isFizkultura) show = false;
                 
-                // Фильтр по виду спорта (точное совпадение)
                 if (sport && cardSport.toLowerCase() !== sport.toLowerCase()) {
                     show = false;
                 }
                 
-                // Фильтр по региону (частичное совпадение)
                 if (region && cardRegion.toLowerCase().indexOf(region.toLowerCase()) === -1) {
                     show = false;
                 }
                 
-                // Фильтр по датам
                 if (dateFrom && cardDateEnd && cardDateEnd < dateFrom) {
                     show = false;
                 }
@@ -2266,7 +3013,6 @@
             announce('Найдено мероприятий: ' + visibleCount);
         }
 
-        // ===== RESET FILTERS =====
         function resetFilters() {
             document.getElementById('filter-type').value = 'all';
             document.getElementById('filter-sport').value = '';
@@ -2274,7 +3020,6 @@
             document.getElementById('filter-date-from').value = '2026-04-01';
             document.getElementById('filter-date-to').value = '2026-04-30';
             
-            // Show all cards
             var cards = document.querySelectorAll('.event-card');
             for (var i = 0; i < cards.length; i++) {
                 cards[i].style.display = '';
@@ -2283,12 +3028,10 @@
             announce('Фильтры сброшены. Показаны все мероприятия.');
         }
 
-        // ===== CALENDAR =====
         var currentMonth = 3; // April (0-indexed)
         var currentYear = 2026;
         var selectedDay = null;
         
-        // Event days for April 2026
         var eventDays = [3, 4, 5, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30];
         
         function renderCalendar() {
@@ -2299,7 +3042,6 @@
                              'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
             label.textContent = monthNames[currentMonth] + ' ' + currentYear;
             
-            // Remove old day cells
             var oldDays = grid.querySelectorAll('.cal-day');
             for (var i = 0; i < oldDays.length; i++) {
                 oldDays[i].remove();
@@ -2309,19 +3051,16 @@
             var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
             var daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
             
-            // Adjust for Monday start (Sunday = 0 -> make it 7)
             var startDay = firstDay === 0 ? 6 : firstDay - 1;
             
             var today = new Date();
             
-            // Previous month days
             for (var i = startDay - 1; i >= 0; i--) {
                 var dayNum = daysInPrevMonth - i;
                 var cell = createDayCell(dayNum, true, false);
                 grid.appendChild(cell);
             }
             
-            // Current month days
             for (var d = 1; d <= daysInMonth; d++) {
                 var isToday = (currentYear === today.getFullYear() && currentMonth === today.getMonth() && d === today.getDate());
                 var hasEvent = eventDays.indexOf(d) !== -1;
@@ -2330,7 +3069,6 @@
                 grid.appendChild(cell);
             }
             
-            // Next month days
             var totalCells = grid.querySelectorAll('.cal-day').length;
             var remaining = (7 - (totalCells % 7)) % 7;
             for (var j = 1; j <= remaining; j++) {
@@ -2382,7 +3120,6 @@
             selectedDay = dayNum;
             renderCalendar();
             
-            // Фильтрация мероприятий по выбранной дате
             var cards = document.querySelectorAll('.event-card');
             var visibleCount = 0;
             var selectedDate = currentYear + '-' + String(currentMonth + 1).padStart(2, '0') + '-' + String(dayNum).padStart(2, '0');
@@ -2391,7 +3128,6 @@
                 var cardDateStart = card.getAttribute('data-date-start') || '';
                 var cardDateEnd = card.getAttribute('data-date-end') || '';
                 
-                // Проверяем, попадает ли выбранная дата в диапазон дат мероприятия
                 var isVisible = false;
                 if (cardDateStart && cardDateEnd) {
                     isVisible = (selectedDate >= cardDateStart && selectedDate <= cardDateEnd);
@@ -2407,7 +3143,6 @@
                 }
             });
             
-            // Обновляем счетчик найденных мероприятий
             var countLabel = document.getElementById('events-count');
             if (countLabel) {
                 countLabel.textContent = 'Найдено мероприятий: ' + visibleCount;
@@ -2415,7 +3150,6 @@
             
             announce('Выбрана дата: ' + dayNum + ' ' + getMonthName(currentMonth) + ' ' + currentYear + '. Найдено мероприятий: ' + visibleCount);
             
-            // Скролл к списку событий
             var eventsList = document.getElementById('events-list');
             if (eventsList) {
                 eventsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2440,13 +3174,11 @@
             selectedDay = null;
             renderCalendar();
             
-            // Сбрасываем фильтр дат при смене месяца - показываем все мероприятия
             var cards = document.querySelectorAll('.event-card');
             cards.forEach(function(card) {
                 card.style.display = '';
             });
             
-            // Обновляем счетчик
             var countLabel = document.getElementById('events-count');
             if (countLabel) {
                 countLabel.textContent = 'Найдено мероприятий: ' + cards.length;
@@ -2463,7 +3195,6 @@
             return parts[2] + '.' + parts[1] + '.' + parts[0];
         }
 
-        // ===== ANIMATED COUNTERS =====
         function animateCounters() {
             var counters = document.querySelectorAll('[data-count]');
             
@@ -2499,18 +3230,15 @@
             });
         }
 
-        // ===== INIT =====
         document.addEventListener('DOMContentLoaded', function() {
             animateCounters();
             renderCalendar();
             
-            // Announce page load
             setTimeout(function() {
                 announce('ФГИС Спорт. Главная страница загружена. Используйте Tab для навигации.');
             }, 500);
         });
 
-        // ===== SPORT MODAL =====
         const sportData = {
             football: {
                 icon: '⚽',
@@ -2560,7 +3288,6 @@
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 announce('Открыто модальное окно: ' + data.title);
-                // Focus close button
                 setTimeout(() => {
                     modal.querySelector('.modal-close').focus();
                 }, 100);
@@ -2577,7 +3304,6 @@
                 closeSportModal();
             }
         }
-        // Close modal on Escape key
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 const modal = document.getElementById('sport-modal');
@@ -2586,7 +3312,6 @@
                 }
             }
         });
-        // Make sport cards keyboard accessible
         document.querySelectorAll('.sport-card').forEach(card => {
             card.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -2596,21 +3321,17 @@
             });
         });
 
-        // ===== SITE SEARCH =====
         function performSearch() {
             const searchInput = document.getElementById('site-search');
             const query = searchInput.value.trim();
             if (query) {
                 announce('Поиск: ' + query + '. В реальной системе здесь был бы переход к результатам поиска.');
-                // Here you would normally redirect to search results page
-                // window.location.href = '/search?q=' + encodeURIComponent(query);
                 alert('Поиск: ' + query + '\n(В реальной системе здесь был бы переход к результатам поиска)');
             } else {
                 searchInput.focus();
                 announce('Введите текст для поиска');
             }
         }
-        // Search on Enter key
         document.addEventListener('DOMContentLoaded', function () {
             const searchInput = document.getElementById('site-search');
             if (searchInput) {
@@ -2622,7 +3343,6 @@
                 });
             }
 
-            // ===== AUTOCOMPLETE FOR SPORT =====
             const sports = [
                 "Акробатический рок-н-ролл", "Альпинизм", "Армрестлинг", "Бадминтон", 
                 "Баскетбол", "Биатлон", "Бильярдный спорт", "Бобслей", "Бокс", 
@@ -2751,7 +3471,6 @@
                 });
             }
 
-            // ===== AUTOCOMPLETE FOR REGION =====
             const regions = [
                 "Республика Адыгея", "Республика Алтай", "Республика Башкортостан", "Республика Бурятия",
                 "Республика Дагестан", "Республика Ингушетия", "Кабардино-Балкарская Республика",
@@ -2878,6 +3597,52 @@
                     if (!regionInput.contains(e.target) && !regionListbox.contains(e.target)) {
                         closeRegionList();
                     }
+                });
+            }
+
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = themeToggle?.querySelector('.sun-icon');
+            const moonIcon = themeToggle?.querySelector('.moon-icon');
+            const contrastIcon = themeToggle?.querySelector('.contrast-icon');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            
+            function updateThemeIcons(theme) {
+                if (sunIcon) sunIcon.style.display = theme === 'light' ? 'block' : 'none';
+                if (moonIcon) moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+                if (contrastIcon) contrastIcon.style.display = theme === 'contrast' ? 'block' : 'none';
+                
+                const themeLabels = { 'light': 'светлая', 'dark': 'тёмная', 'contrast': 'контрастная' };
+                if (themeToggle) {
+                    themeToggle.setAttribute('aria-label', `Переключить тему оформления. Текущая тема: ${themeLabels[theme]}`);
+                }
+            }
+            
+            if (savedTheme === 'dark' || savedTheme === 'contrast') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                updateThemeIcons(savedTheme);
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                    let newTheme;
+                    
+                    if (currentTheme === 'light') {
+                        newTheme = 'dark';
+                    } else if (currentTheme === 'dark') {
+                        newTheme = 'contrast';
+                    } else {
+                        newTheme = 'light';
+                    }
+                    
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    updateThemeIcons(newTheme);
+                    
+                    const themeLabels = { 'light': 'светлая', 'dark': 'тёмная', 'contrast': 'контрастная' };
+                    announce(`Тема оформления переключена на ${themeLabels[newTheme]}`);
                 });
             }
         });

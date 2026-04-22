@@ -8,7 +8,6 @@
     initFormValidation();
   });
 
-  // Управление фокусом для якорных ссылок
   function initSkipFocus() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -21,7 +20,6 @@
     });
   }
 
-  // Аннотация внешних ссылок для скринридеров
   function initExternalLinks() {
     document.querySelectorAll('a[target="_blank"]').forEach(link => {
       if (!link.getAttribute('rel')?.includes('noopener')) {
@@ -33,7 +31,6 @@
     });
   }
 
-  // Панель фильтра ЕКП
   function initFilterPanel() {
     const toggle = document.getElementById('filter-toggle');
     const panel = document.getElementById('filter-panel');
@@ -70,7 +67,6 @@
     });
   }
 
-  // Валидация формы и имитация поиска
   function initFormValidation() {
     const form = document.getElementById('ekp-form');
     const error = document.getElementById('form-error');
